@@ -1,0 +1,103 @@
+/* Login container similar to signup container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('../assets/background.png'); /* Replace with your actual path */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+/* Login form similar to signup form */
+.login-form {
+    background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Responsive width */
+    max-width: 400px; /* Optional: Set a max width */
+}
+
+/* Title styling */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Center align the title text */
+}
+
+/* Input field styling */
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* Button styling */
+.btn {
+    background-color: #007BFF; /* Blue background */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width */
+    font-size: 16px; /* Font size */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center; /* Center align the error messages */
+}
+
+/* Additional styling for paragraph and link */
+.login-form p {
+    margin: 15px 0; /* Add space around the text */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center-align the text */
+}
+
+/* Style for the link within the paragraph */
+.login-form a {
+    color: #000; /* Set the link color to black */
+    text-decoration: underline; /* Underline the link for visibility */
+    font-weight: bold; /* Make the link bold */
+}
+
+/* Optional: Add hover effect for the link */
+.login-form a:hover {
+    color: #007BFF; /* Change color on hover to stand out */
+    text-decoration: underline; /* Keep underline on hover */
+}
+/* Styling for the "Don't have an account?" link in the login page */
+.login-form p {
+    margin: 15px 0; /* Add space around the text */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center-align the text */
+}
+
+.login-form a {
+    color: #000; /* Set the link color to black */
+    text-decoration: underline; /* Underline the link for visibility */
+    font-weight: bold; /* Make the link bold */
+}
+
+.login-form a:hover {
+    color: #007BFF; /* Change color on hover to stand out */
+    text-decoration: underline; /* Keep underline on hover */
+}
