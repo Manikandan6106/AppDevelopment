@@ -1,5 +1,5 @@
-/* About container similar to login container */
-.about {
+/* Privacy Policy container similar to the About container */
+.privacy-policy {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,10 +9,12 @@
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
+    margin: 0; /* Ensure no margin affecting centering */
+    padding: 0; /* Ensure no padding affecting centering */
 }
 
-/* About content similar to login form */
-.about-container {
+/* Privacy Policy content similar to the About content */
+.privacy-policy-container {
     background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
     padding: 40px;
     border-radius: 50px;
@@ -20,18 +22,19 @@
     width: 100%; /* Responsive width */
     max-width: 600px; /* Optional: Set a max width */
     text-align: center; /* Center align the text */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Title styling */
-.about-container h1 {
-    font-size: 24px; /* Adjust to match the login form title size */
+.privacy-policy-container h1 {
+    font-size: 24px; /* Adjust to match the title size */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 /* Paragraph styling */
-.about-container p {
-    font-size: 16px; /* Adjust font size to match the login form */
+.privacy-policy-container p {
+    font-size: 16px; /* Adjust font size to match the content */
     margin-bottom: 20px;
     color: #000; /* Dark color for better readability */
     line-height: 1.6; /* Increased line height for readability */
@@ -39,16 +42,16 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .about-container {
+    .privacy-policy-container {
         padding: 20px; /* Adjust padding for smaller screens */
         max-width: 100%; /* Full width on smaller screens */
     }
 
-    .about-container h1 {
+    .privacy-policy-container h1 {
         font-size: 20px; /* Adjust title font size */
     }
 
-    .about-container p {
+    .privacy-policy-container p {
         font-size: 14px; /* Adjust paragraph font size */
     }
 }

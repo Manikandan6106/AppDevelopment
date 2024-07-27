@@ -7,7 +7,7 @@ const About = () => {
       <div className="about-container">
         <h1>About Us</h1>
         <p>
-          Welcome to Landsters , your trusted partner in real estate.
+          Welcome to Landsters RealEstates, your trusted partner in real estate.
           With years of experience and a team of dedicated professionals, we
           offer comprehensive real estate services to meet all your needs.
         </p>
@@ -23,7 +23,7 @@ const About = () => {
           for all our clients.
         </p>
         <p>
-          Thank you for considering [Your Company Name]. We look forward to
+          Thank you for considering Landsters RealEstates. We look forward to
           working with you and helping you achieve your real estate dreams.
         </p>
       </div>
