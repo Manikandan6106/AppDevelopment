@@ -1,74 +1,103 @@
 .contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    background-image: url('../assets/background.png'); /* Ensure this path is correct */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 2rem;
-  }
-  
-  .contact-form {
-    background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
-    padding: 40px;
-    border-radius: 30px; /* Increased border radius for more rounded edges */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 600px; /* Adjust as needed */
-  }
-  
-  .contact-form h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center; /* Center align the title text */
-  }
-  
-  .contact-form p {
-    font-size: 20px; /* Increased font size for the text paragraphs */
-    margin-bottom: 20px;
-    color: #333; /* Dark color */
-  }
-  
-  .input-field {
-    margin-bottom: 20px;
-  }
-  
-  .input-field input,
-  .input-field textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-  }
-  
-  .input-field textarea {
-    resize: vertical; /* Allows vertical resizing */
-    height: 100px; /* Set a default height */
-  }
-  
-  .btn {
-    background-color: #4CAF50; /* Green background */
-    color: #fff; /* White text */
-    padding: 10px 20px; /* Padding around the text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 100%; /* Full width */
-    font-size: 16px; /* Font size */
-  }
-  
-  .btn:hover {
-    background-color: #3e8e41; /* Darker green on hover */
-  }
-  
-  .error {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    text-align: center; /* Center align the error messages */
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  background-image: url('../assets/background.png'); /* Ensure this path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+}
+
+.contact-form {
+  background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
+  padding: 40px;
+  border-radius: 30px; /* Increased border radius for more rounded edges */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Center align the title text */
+}
+
+.contact-form p {
+  font-size: 20px; /* Increased font size for the text paragraphs */
+  margin-bottom: 20px;
+  color: #333; /* Dark color */
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input-field textarea {
+  resize: vertical; /* Allows vertical resizing */
+  height: 100px; /* Set a default height */
+}
+
+.btn {
+  background-color: #4CAF50; /* Green background */
+  color: #fff; /* White text */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 100%; /* Full width */
+  font-size: 16px; /* Font size */
+}
+
+.btn:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center; /* Center align the error messages */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.679);  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center; /* Center align the modal content */
+}
+
+.modal p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 20px;
+}

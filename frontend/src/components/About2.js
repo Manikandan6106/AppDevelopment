@@ -1,11 +1,12 @@
 import React from 'react';
-import '../styling/About.css';
+import '../styling/About2.css';
 import Navbar from './Navbar';
+import AdminNavbar from './AdminNavbar';
 
-const About = () => {
+const About2 = () => {
   return (
-    <div className="about">
-      <Navbar/>
+    <div className="about2">
+      <AdminNavbar/>
       <div className="about-container">
         <h1>About Us</h1>
         <p>
@@ -33,4 +34,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About2;

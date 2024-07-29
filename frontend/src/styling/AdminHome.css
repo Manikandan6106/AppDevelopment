@@ -4,7 +4,6 @@
     background-size: cover;
     min-height: 100vh; /* Ensure the container takes full height */
     position: relative; /* Ensure the container is positioned correctly for absolute children */
-    padding-bottom: 80px; /* Ensure there's space for the footer */
 }
 
 /* Hero Section */
@@ -130,4 +129,6 @@
     /* Ensure there’s space at the bottom */
 }
 
- 
+.footer-container.footer-visible {
+    /* No additional styles needed; footer is already visible */
+}

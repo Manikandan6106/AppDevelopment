@@ -1,0 +1,85 @@
+/* src/styling/AdminDashboard.css */
+.dashboard-container {
+    display: flex;
+  }
+  
+  .side-panel {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+  }
+  
+  .profile-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .side-panel h2 {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .side-panel nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-panel nav ul li {
+    margin: 15px 0;
+  }
+  
+  .side-panel nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-icon {
+    margin-right: 10px;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-card {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .update-card {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .stats-card {
+    background-color: #2980b9;
+    color: white;
+  }
+  

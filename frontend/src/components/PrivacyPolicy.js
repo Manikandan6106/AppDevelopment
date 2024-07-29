@@ -1,10 +1,12 @@
 // PrivacyPolicy.js
 import React from 'react';
 import '../styling/PrivacyPolicy.css'; // Import CSS if you have specific styles for this component
+import AdminNavbar from './AdminNavbar';
 
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy-container">
+      <AdminNavbar />
       <h1 className="privacy-policy-title">Privacy Policy</h1>
       <p className="privacy-policy-intro">
         Your privacy is important to us. This privacy statement explains what personal data we collect, how we use it, and your rights regarding your data.

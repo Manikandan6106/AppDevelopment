@@ -91,15 +91,15 @@
     background-color: #007BFF; /* Active background color */
     border: 2px solid #0056b3; /* Border color for active state */
     color: #fff;
-    transform: scale(1.05); /* Slightly enlarge the button when active */
+    transform: scale(1.15); /* Slightly enlarge the button when active */
   }
   
   .add-listing-form .radioInput span {
     font-size: 16px;
-    color: #333;
+    color: #000000;
   }
   
   .add-listing-form .radioInput:hover {
-    background-color: #e0e0e0; /* Light gray background on hover */
+    background-color: #007BFF; /* Light gray background on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
   }

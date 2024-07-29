@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styling/Signup.css';
+import Navbar from './Navbar';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -45,6 +46,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
+      <Navbar/>
       <div className="signup-form">
         <h2 className="title">Sign up</h2>
         <form onSubmit={handleSubmit}>

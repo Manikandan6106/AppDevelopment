@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styling/Login.css'; // Assuming you have similar styling as Login
+import Navbar from './Navbar';
 
-const AdminLogin = () => {
+const AdminLogin = ({ setIsAdmin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validateLogin();
     if (isValid) {
       // Handle admin login
+      setIsAdmin(true);
+      navigate('/admin-home');
     }
   };
 
@@ -32,6 +37,7 @@ const AdminLogin = () => {
 
   return (
     <div className="login-container">
+      <Navbar />
       <div className="login-form">
         <h2 className="title">Admin Login</h2>
         <form onSubmit={handleSubmit}>

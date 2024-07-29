@@ -1,6 +1,6 @@
-// src/components/AddListing.js
 import React, { useState } from 'react';
 import '../styling/AddListing.css';
+import Navbar from './Navbar';
 
 const AddListing = ({ onAddProperty }) => {
   const [title, setTitle] = useState('');
@@ -47,6 +47,7 @@ const AddListing = ({ onAddProperty }) => {
 
   return (
     <div className="add-listing-container">
+      <Navbar/>
       <div className="add-listing-form">
         <h2 className="title">List Your Property</h2>
         <form onSubmit={handleSubmit}>

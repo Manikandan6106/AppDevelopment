@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styling/Services.css'; // Ensure this path is correct
+import AdminNavbar from './AdminNavbar';
 
 const Services = ({ setBackground }) => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const Services = ({ setBackground }) => {
 
   return (
     <div className="services-container">
+      <AdminNavbar />
       <div className="services-content">
         <h2>Our Real Estate Services</h2>
         <p>We offer a comprehensive range of real estate services to help you buy, sell, and manage properties. Our team of experts is dedicated to providing personalized solutions to meet your needs.</p>

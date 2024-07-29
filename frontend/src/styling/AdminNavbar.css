@@ -1,0 +1,208 @@
+/* Admin Navbar container */
+.admin-navbar {
+    background: rgba(255, 255, 255, 0.0); /* Semi-transparent background to see the page background */
+    padding: 1.5rem 2rem; /* Increased top/bottom padding to expand height */
+    box-shadow: none; /* Remove shadow for a flat look */
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center align items vertically */
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: top 0.3s; /* Smooth transition for hide/show */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Show navbar */
+.admin-navbar.visible {
+    top: 0;
+}
+
+/* Hide navbar */
+.admin-navbar.hidden {
+    top: -100px; /* Hide it above the viewport */
+}
+
+/* Logo container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Admin logo link container */
+.admin-logo-link {
+    position: relative;
+    display: inline-block; /* Ensure the element respects margins and transformations */
+    padding: 5px; /* Add padding similar to other links */
+    transition: color 0.5s; /* Smooth transition for color */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Admin logo styles */
+.admin-logo {
+    color: #ffffff; /* Text color */
+    margin-right: 10px; /* Space between the admin logo and Landsters text */
+    transition: transform 0.5s, color 0.5s, filter 0.5s; /* Smooth transitions for transform, color, and filter */
+    display: inline-block; /* Ensure the element respects transformations */
+    font-size: 1.5rem; /* Adjust size if needed */
+}
+
+/* Admin logo hover effects */
+.admin-logo-link:hover .admin-logo {
+    transform: scale(1.8); /* Zoom in effect */
+    filter: brightness(1.2); /* Slightly brighten the logo on hover */
+}
+
+/* Hover effect background transition for admin logo */
+.admin-logo-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff32; /* Background color for hover effect */
+    transition: transform 0.5s; /* Smooth transition for background scale */
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1; /* Ensure it stays behind the text */
+    border-radius: 10px;
+}
+
+.admin-logo-link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand background color on hover */
+}
+
+/* Logo styles */
+.logo {
+    font-size: 1.5rem; /* Adjust size if needed */
+    color: #000000; /* Text color */
+    text-transform: uppercase; /* Uppercase text for consistency */
+    text-decoration: none; /* Remove underline from the logo */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+
+/* Right links container */
+.right-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes the right links to the far right */
+}
+
+/* Navbar links container */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    padding: 0;
+    margin: 0; /* Remove default margin */
+}
+
+/* Navbar links */
+.nav-links li {
+    margin: 0 20px; /* Horizontal margin between links */
+    transition: transform 0.5s, opacity 0.5s, filter 0.5s; /* Smooth transitions for transform, opacity, and filter */
+}
+
+/* Navbar link styles */
+.nav-links a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #fff; /* Text color */
+    text-transform: uppercase; /* Uppercase text */
+    transition: color 0.5s; /* Smooth transition for color */
+}
+
+/* Hover effects for navbar links */
+.nav-links a:hover {
+    transform: scale(1.8); /* Zoom in effect */
+    opacity: 1; /* Full opacity on hover */
+    filter: blur(0); /* No blur on hover */
+    text-decoration: none; /* Remove underline on hover */
+    color: #fff; /* Ensure text color remains white on hover */
+}
+
+/* Hover effect background transition */
+.nav-links li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff32; /* Background color for hover effect */
+    transition: transform 0.5s; /* Smooth transition for background scale */
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1; /* Ensure it stays behind the text */
+    border-radius: 10px;
+}
+
+.nav-links a:hover:before {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand background color on hover */
+}
+
+/* Optional active link styling */
+.nav-links a.active {
+    background-color: #ffffff32; /* Background color */
+    color: #fff; /* Text color */
+    border-radius: 10px; /* Round edges */
+    transform: scale(1.5); /* Zoom effect */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+/* Align the Signup button to the right */
+.signup-button {
+    margin-left: auto; /* Pushes the signup button to the far right */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #fff; /* Text color */
+    background-color: #007bff; /* Background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Round edges */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Signup button hover effect */
+.signup-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px; /* Width of the sidebar */
+  height: 100%;
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px;
+  z-index: 1001; /* Ensure it stays above the navbar */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for slide-in effect */
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Shadow for a 3D effect */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 20px 0; /* Space between items */
+  font-size: 18px; /* Adjust font size if needed */
+}
+
+.sidebar li:hover {
+  cursor: pointer; /* Pointer cursor on hover */
+  color: #ccc; /* Change text color on hover */
+}

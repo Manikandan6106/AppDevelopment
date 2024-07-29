@@ -24,19 +24,6 @@
     top: -100px; /* Hide it above the viewport */
 }
 
-/* Home link (branding text) styling */
-.home-link {
-    color: #000000; /* White text for better visibility */
-    text-decoration: none;
-    font-size: 1.5rem; /* Increase font size for prominence */
-    font-weight: bold; /* Make the text bold */
-    letter-spacing: 2px; /* Add some spacing between letters */
-    text-transform: uppercase; /* Uppercase text for a stronger look */
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
 /* Navbar links container */
 .nav-links {
     list-style: none;
@@ -48,31 +35,62 @@
 
 /* Navbar links */
 .nav-links li {
-    margin: 0;
+    margin: 0 20px; /* Horizontal margin between links */
+    transition: transform 0.5s, opacity 0.5s, filter 0.5s; /* Smooth transitions for transform, opacity, and filter */
 }
 
 /* Navbar link styles */
 .nav-links a {
-    color: #fff; /* White text for better visibility */
+    display: block;
+    position: relative;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    display: block; /* Ensure full clickable area */
+    padding: 5px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    transition: color 0.5s; /* Smooth transition for color */
 }
 
-/* Navbar link hover effect */
+/* Hover effects for navbar links */
 .nav-links a:hover {
-    background-color: #ffffff72;
-    color: #fff;
+    transform: scale(1.8); /* Zoom in effect */
+    opacity: 1; /* Full opacity on hover */
+    filter: blur(0); /* No blur on hover */
+    text-decoration: none; /* Remove underline on hover */
+    color: #fff; /* Ensure text color remains white on hover */
+}
+
+/* Hover effect background transition */
+.nav-links li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff87; /* Background color for hover effect */
+    transition: transform 0.5s; /* Smooth transition for background scale */
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1; /* Ensure it stays behind the text */
+    border-radius: 10px;
+}
+
+.nav-links a:hover:before {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand background color on hover */
 }
 
 /* Optional active link styling */
 .nav-links a.active {
-    background-color: #e1e1e1b6;
-    color: #fff;
+    background-color: #ffffffa0; /* Background color */
+    color: #fff; /* Text color */
+    border-radius: 10px; /* Round edges */
+    transform: scale(1.5); /* Zoom effect */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
 }
+
 
 /* Align the Signup button to the right */
 .nav-links .signup-button {
@@ -111,3 +129,19 @@
         width: 100%; /* Full width for better touch targets on mobile */
     }
 }
+
+/* Home link styles */
+.home-link {
+    color: #000000; /* Black text for better visibility */
+    text-decoration: none;
+    font-size: 1.5rem; /* Increase font size for prominence */
+    font-weight: bold; /* Make the text bold */
+    letter-spacing: 2px; /* Add some spacing between letters */
+    text-transform: uppercase; /* Uppercase text for a stronger look */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Smooth transition for transform */
+    display: inline-block; /* Ensure the element respects margins and transformations */
+    transform: translateX(20px); /* Move the link slightly to the right */
+}
+
