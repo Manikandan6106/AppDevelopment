@@ -1,13 +1,17 @@
-// src/components/AdminHome.js
-
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import '../styling/Home.css'; // Ensure this path is correct
 import AdminNavbar from './AdminNavbar';
 import Footer from './Footer';
+import Sidebar from './Sidebar';
+import PropertyList from './PropertyList';
 
-const AdminHome = () => {
+const AdminHome = ({ properties }) => {
   const [showFooter, setShowFooter] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +34,7 @@ const AdminHome = () => {
 
   return (
     <div className="home-container">
-      <AdminNavbar />
+       <Sidebar isVisible={sidebarVisible} />
       <div className="hero-section">
         <h1>Find Your Dream Home</h1>
         <h2>Logged In As Admin</h2>
@@ -42,6 +46,9 @@ const AdminHome = () => {
       </div>
       <div className="image-section">
         {/* Add any content or image here if needed */}
+      </div>
+      <div className="property-list-hero">
+        <PropertyList properties={properties} isAdmin={true} isHomepage={true} />
       </div>
       <Footer showFooter={showFooter} />
     </div>

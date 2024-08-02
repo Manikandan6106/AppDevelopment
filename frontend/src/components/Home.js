@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for client-side navigation
 import '../styling/Home.css';
 import Footer from './Footer'; // Ensure Footer is imported correctly
 import Navbar from './Navbar'; // Import the Navbar component
+import PropertyList from './PropertyList'; // Import PropertyList component
 
-const Home = () => {
+const Home = ({ properties }) => {
   const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
@@ -28,23 +28,18 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Navbar />
-      <div className="hero-section">
-        
+       <div className="hero-section">
         <h1>Find Your Dream Home</h1>
         <p>Explore the best properties in your area</p>
         <div className="search-bar">
           <input type="text" placeholder="Search by city, neighborhood, or ZIP code" />
           <button>Search</button>
         </div>
-        {/* Admin Login Button */}
-        <div className="admin-login-container">
-          <Link to="/admin-home" className="admin-login-button">Admin Login</Link>
-        </div>
       </div>
 
-      <div className="image-section">
-        {/* Add any content or image here if needed */}
+      {/* Property List below the search bar */}
+      <div className="property-list-hero">
+        <PropertyList properties={properties} isAdmin={false} isHomepage={true} />
       </div>
 
       <Footer showFooter={showFooter} />

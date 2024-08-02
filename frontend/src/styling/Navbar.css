@@ -1,7 +1,8 @@
-/* Navbar container */
-.navbar {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background to see the page background */
-    padding: 1.5rem 2rem; /* Increased top/bottom padding to expand height */
+/* Main Navbar container */
+.main-navbar {
+    background: rgba(0, 0, 0, 0.514); /* Semi-transparent background to see the page background */
+    padding-top: 10px;
+    padding-bottom: 10px;
     box-shadow: none; /* Remove shadow if you want a flat look */
     display: flex;
     justify-content: space-between; /* Ensure space between items */
@@ -15,85 +16,87 @@
 }
 
 /* Show navbar */
-.navbar.visible {
+.main-navbar.visible {
     top: 0;
 }
 
 /* Hide navbar */
-.navbar.hidden {
+.main-navbar.hidden {
     top: -100px; /* Hide it above the viewport */
 }
 
 /* Navbar links container */
-.nav-links {
+.main-nav-links {
     list-style: none;
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    padding: 0;
+    padding-left: 13px;
+    padding-right: 13px;
     margin: 0; /* Remove default margin */
+    margin-left: -30px; /* Move links slightly towards the left */
 }
 
 /* Navbar links */
-.nav-links li {
-    margin: 0 20px; /* Horizontal margin between links */
+.main-nav-links li {
+    margin: 0 30px; /* Increase the space between links */
+    color: #000000;
     transition: transform 0.5s, opacity 0.5s, filter 0.5s; /* Smooth transitions for transform, opacity, and filter */
 }
 
 /* Navbar link styles */
-.nav-links a {
+.main-nav-links a {
     display: block;
     position: relative;
     text-decoration: none;
     padding: 5px;
     font-size: 18px;
     font-family: sans-serif;
-    color: #fff;
+    color: #ffffff;
     text-transform: uppercase;
-    transition: color 0.5s; /* Smooth transition for color */
+    transition: color 0.5s, transform 0.5s, filter 0.5s; /* Smooth transition for color, transform, and filter */
+    font-weight: bold;
 }
 
 /* Hover effects for navbar links */
-.nav-links a:hover {
-    transform: scale(1.8); /* Zoom in effect */
-    opacity: 1; /* Full opacity on hover */
-    filter: blur(0); /* No blur on hover */
+.main-nav-links a:hover {
+    transform: scale(1.2); /* Zoom in effect */
+    filter: brightness(1.2); /* Increase brightness on hover */
     text-decoration: none; /* Remove underline on hover */
-    color: #fff; /* Ensure text color remains white on hover */
+    color: #ffffff; /* Ensure text color remains white on hover */
 }
 
 /* Hover effect background transition */
-.nav-links li a:before {
+.main-nav-links a::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffffff87; /* Background color for hover effect */
+    background: #ffffff65; /* Background color for hover effect */
     transition: transform 0.5s; /* Smooth transition for background scale */
     transform-origin: right;
-    transform: scaleX(0);
+    transform: scaleX(0); /* Start with no visible background */
     z-index: -1; /* Ensure it stays behind the text */
     border-radius: 10px;
 }
 
-.nav-links a:hover:before {
+.main-nav-links a:hover::before {
     transform-origin: left;
     transform: scaleX(1); /* Expand background color on hover */
 }
 
 /* Optional active link styling */
-.nav-links a.active {
-    background-color: #ffffffa0; /* Background color */
-    color: #fff; /* Text color */
+.main-nav-links a.active {
+    background-color: #ffffff8b; /* Background color */
+    color: #ffffff; /* Text color */
     border-radius: 10px; /* Round edges */
-    transform: scale(1.5); /* Zoom effect */
+    transform: scale(1.45); /* Zoom effect */
     transition: transform 0.3s ease; /* Smooth transition for zoom effect */
 }
 
-
 /* Align the Signup button to the right */
-.nav-links .signup-button {
+.main-nav-links .signup-button {
     margin-left: auto; /* Pushes the Signup button to the right */
     background-color: #4CAF50; /* Green background for the button */
     color: #fff; /* White text */
@@ -102,37 +105,37 @@
     transition: background-color 0.3s; /* Transition effect */
 }
 
-.nav-links .signup-button:hover {
+.main-nav-links .signup-button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    .navbar {
+    .main-navbar {
         flex-direction: column; /* Stack navbar items vertically on smaller screens */
         align-items: flex-start; /* Align items to the start */
     }
 
-    .nav-links {
+    .main-nav-links {
         flex-direction: column; /* Stack links vertically */
         gap: 0.5rem; /* Reduced gap for vertical stacking */
         width: 100%; /* Full width for better touch targets */
     }
 
-    .nav-links a {
+    .main-nav-links a {
         width: 100%; /* Full width for better touch targets on mobile */
         padding: 0.5rem; /* Adjust padding for vertical stack */
     }
 
-    .nav-links .signup-button {
+    .main-nav-links .signup-button {
         margin-left: 0; /* Remove margin-left in mobile view */
         width: 100%; /* Full width for better touch targets on mobile */
     }
 }
 
 /* Home link styles */
-.home-link {
-    color: #000000; /* Black text for better visibility */
+.main-home-link {
+    color: #ffffff; /* Black text for better visibility */
     text-decoration: none;
     font-size: 1.5rem; /* Increase font size for prominence */
     font-weight: bold; /* Make the text bold */
@@ -145,3 +148,27 @@
     transform: translateX(20px); /* Move the link slightly to the right */
 }
 
+/* Applying same effect as logo to the home link */
+.main-home-link:hover {
+    transform: scale(1.02); /* Zoom in effect */
+    filter: brightness(1.2); /* Increase brightness on hover */
+}
+
+.main-home-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     transition: transform 0.5s; /* Smooth transition for background scale */
+    transform-origin: right;
+    transform: scaleX(0); /* Start with no visible background */
+    z-index: -1; /* Ensure it stays behind the text */
+    border-radius: 10px;
+}
+
+.main-home-link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand background color on hover */
+}

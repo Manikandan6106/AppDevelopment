@@ -1,0 +1,56 @@
+/* Services container */
+.uservices-container {
+    display: flex;
+    flex-direction: column; /* Ensure the content stacks vertically */
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0; /* Light gray background for fallback */
+    background-image: url('../assets/i3.png'); /* Background image specific to Services page */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repetition */
+    padding-top: 80px; /* Space for navbar */
+}
+
+/* Ensure the content is above the background */
+.uservices-content {
+    background-color: rgba(255, 255, 255, 0.411); /* Semi-transparent background */
+    padding: 40px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 900px; /* Adjust width as needed */
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.uservices-content h2 {
+    
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000; /* Darker color for better visibility */
+}
+
+.uservices-content p {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #000; /* Darker color for better visibility */
+}
+
+.uservice-item {
+    margin-bottom: 30px;
+}
+
+.uservice-item h3 {
+    font-size: 1.8rem;
+    color: #000; /* Darker color for better visibility */
+    margin-bottom: 10px;
+}
+
+.uservice-item p {
+    font-size: 1rem;
+    color: #000; /* Darker color for better visibility */
+    line-height: 1.6;
+}

@@ -1,18 +1,15 @@
 /* Services container */
 .services-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Ensure the content stacks vertically */
     align-items: center;
-    min-height: calc(100vh - 80px); /* Full viewport height minus navbar height */
+    min-height: 100vh; /* Full viewport height */
     background-color: #f0f0f0; /* Light gray background for fallback */
     background-image: url('../assets/i3.png'); /* Background image specific to Services page */
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent repetition */
-    padding: 2rem; /* Padding around the container */
-    margin-top: 80px; /* Adjust to match the navbar height */
-    position: relative; /* Ensure positioning context */
-    z-index: 1; /* Ensure it is behind the navbar if needed */
+    padding-top: 80px; /* Space for navbar */
 }
 
 /* Ensure the content is above the background */
@@ -24,11 +21,12 @@
     width: 100%;
     max-width: 900px; /* Adjust width as needed */
     text-align: center;
-    position: relative; /* Ensure positioning context for z-index */
-    z-index: 2; /* Higher z-index to stay above the background */
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .services-content h2 {
+    
     margin-bottom: 20px;
     font-size: 2.5rem;
     font-weight: bold;

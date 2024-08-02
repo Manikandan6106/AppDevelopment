@@ -2,11 +2,18 @@ import React, { useEffect } from 'react';
 import '../styling/Services.css'; // Ensure this path is correct
 import AdminNavbar from './AdminNavbar';
 
+// Import the background image directly if using it in styles
+import backgroundImg from '../assets/image2.png';
+
 const Services = ({ setBackground }) => {
   useEffect(() => {
-    setBackground('../assets/i3.png'); // Update background image for Services page
+    if (setBackground) {
+      setBackground(`url(${backgroundImg})`); // Update background image for Services page
+    }
     return () => {
-      setBackground(''); // Optionally clear background when component unmounts
+      if (setBackground) {
+        setBackground(''); // Clear background when component unmounts
+      }
     };
   }, [setBackground]);
 

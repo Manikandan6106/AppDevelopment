@@ -1,18 +1,16 @@
-/* src/styling/PrivacyPolicy.css */
-
 /* Parent Container */
 .privacy-policy {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh; /* Full viewport height */
     background-color: #f0f0f0;
     background-image: url('../assets/background.png'); /* Replace with your actual path */
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     margin: 0; /* Ensure no margin affecting centering */
-    padding: 0; /* Ensure no padding affecting centering */
+    padding-top: 80px; /* Space for navbar */
 }
 
 /* Child Container */
@@ -25,8 +23,9 @@
     max-width: 600px; /* Optional: Set a max width */
     text-align: center; /* Center align the text */
     box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 30px; /* Space between navbar and content */
+    margin-bottom: 30px; /* Space between navbar and content */
 }
-
 
 .privacy-policy-container h1 {
     font-size: 24px; /* Adjust to match the title size */

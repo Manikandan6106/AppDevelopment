@@ -1,0 +1,234 @@
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* User Navbar container */
+.user-navbar {
+    background: rgba(0, 0, 0, 0.514); /* Ensure this matches your desired color */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;  /* Ensure alignment to the left edge */
+    width: 100%;
+    height: 80px;
+    z-index: 1000; 
+    transition: top 0.3s; 
+    box-sizing: border-box;
+}
+
+/* Show navbar */
+.user-navbar.visible {
+    top: 0;
+}
+
+/* Hide navbar */
+.user-navbar.hidden {
+    top: -100px;
+}
+
+/* Logo container */
+.user-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* User logo styles */
+.user-logo {
+    width: 60px; /* Updated to match admin logo size */
+    height: auto; 
+    cursor: pointer;
+}
+
+/* Ensure user-logo-link styles are not affecting image display */
+.user-logo-link {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    transition: color 0.5s;
+    cursor: pointer;
+}
+
+/* Optional additional styling if needed */
+.user-logo-link img {
+    display: block;
+    height: 50px;
+    width:  50px;
+}
+
+/* User logo hover effects */
+.user-logo-link:hover .user-logo {
+    transform: scale(1.2); 
+    filter: brightness(1.2);
+}
+
+/* Hover effect background transition for user logo */
+.user-logo-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff65; 
+    transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.user-logo-link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* User Navbar links container */
+.user-nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    padding-left: 13px;
+    padding-right: 13px;
+    margin: 0; /* Remove default margin */
+    margin-left: -30px; /* Move links slightly towards the left */
+}
+
+/* User Navbar links */
+.user-nav-links li {
+    margin: 0 30px; /* Increase the space between links */
+    color: #000000;
+    transition: transform 0.5s, opacity 0.5s, filter 0.5s;
+}
+
+/* User Navbar link styles */
+.user-nav-links a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+    transition: color 0.5s, transform 0.5s, filter 0.5s;
+    font-weight: bold;
+}
+
+/* Hover effects for User Navbar links */
+.user-nav-links a:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Hover effect background transition for user navbar links */
+.user-nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff65; 
+    transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.user-nav-links a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Optional active link styling */
+.user-nav-links a.active {
+    background-color: #ffffff8b;
+    color: #fff;
+    border-radius: 10px;
+    transform: scale(1.45);
+    transition: transform 0.3s ease;
+}
+
+/* Align the Signup button to the right */
+.user-nav-links .signup-button {
+    margin-left: auto;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.user-nav-links .signup-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .user-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .user-nav-links a {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .user-nav-links .signup-button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Home link styles */
+.user-home-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    transform: translateX(20px);
+}
+
+/* Applying same effect as logo to the home link */
+.user-home-link:hover {
+    transform: scale(1.02); 
+    filter: brightness(1.2);
+}
+
+.user-home-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.user-home-link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}

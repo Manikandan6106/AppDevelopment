@@ -9,10 +9,12 @@
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding-top: 60px; /* Adjust padding to avoid overlap with fixed navbar */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 /* About content similar to login form */
-.about-container {
+.about2-container {
     background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
     padding: 40px;
     border-radius: 50px;
@@ -23,14 +25,14 @@
 }
 
 /* Title styling */
-.about-container h1 {
+.about2-container h1 {
     font-size: 24px; /* Adjust to match the login form title size */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 /* Paragraph styling */
-.about-container p {
+.about2-container p {
     font-size: 16px; /* Adjust font size to match the login form */
     margin-bottom: 20px;
     color: #000; /* Dark color for better readability */
@@ -39,16 +41,16 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .about-container {
+    .about2-container {
         padding: 20px; /* Adjust padding for smaller screens */
         max-width: 100%; /* Full width on smaller screens */
     }
 
-    .about-container h1 {
+    .about2-container h1 {
         font-size: 20px; /* Adjust title font size */
     }
 
-    .about-container p {
+    .about2-container p {
         font-size: 14px; /* Adjust paragraph font size */
     }
 }

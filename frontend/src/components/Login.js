@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import '../styling/Login.css';
 import Navbar from './Navbar';
@@ -47,9 +48,8 @@ const Login = () => {
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
             {errors.password && <div className="error">{errors.password}</div>}
           </div>
-          <button type="submit" className="btn">Login</button>
+          <Link to="/login/admin"><button type="submit" className="btn">Login</button></Link>
           <p>Don't have an account? <a href="/signup">Sign up</a></p>
-          <p><a href="#" onClick={() => navigate('/admin-login')}>Login as Admin</a></p>
         </form>
       </div>
     </div>

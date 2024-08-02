@@ -1,13 +1,12 @@
 import React from 'react';
 import '../styling/About2.css';
-import Navbar from './Navbar';
 import AdminNavbar from './AdminNavbar';
 
 const About2 = () => {
   return (
     <div className="about2">
-      <AdminNavbar/>
-      <div className="about-container">
+      <AdminNavbar />
+      <div className="about2-container">
         <h1>About Us</h1>
         <p>
           Welcome to Landsters RealEstates, your trusted partner in real estate.

@@ -1,4 +1,3 @@
-/* About container similar to login container */
 .about {
     display: flex;
     justify-content: center;
@@ -11,9 +10,8 @@
     background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
-/* About content similar to login form */
 .about-container {
-    background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
+    background-color: rgba(255, 255, 255, 0.614); /* Adjusted transparency */
     padding: 40px;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -22,14 +20,12 @@
     text-align: center; /* Center align the text */
 }
 
-/* Title styling */
 .about-container h1 {
     font-size: 24px; /* Adjust to match the login form title size */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Paragraph styling */
 .about-container p {
     font-size: 16px; /* Adjust font size to match the login form */
     margin-bottom: 20px;
@@ -37,7 +33,6 @@
     line-height: 1.6; /* Increased line height for readability */
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .about-container {
         padding: 20px; /* Adjust padding for smaller screens */

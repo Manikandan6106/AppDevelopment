@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styling/Signup.css';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -66,7 +67,7 @@ const Signup = () => {
             <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
             {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
           </div>
-          <button type="submit" className="btn">Sign up</button>
+          <Link to="/login"><button type="submit" className="btn">Sign up</button></Link>
           <p>Already have an account? <a href="/login">Login</a></p>
         </form>
       </div>

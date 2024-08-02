@@ -1,105 +1,110 @@
 /* AddListing.css */
 .add-listing-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    background-image: url('../assets/i5.png'); /* Replace with your actual path */
-    background-size: cover; /* Ensures the image covers the entire container */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  background-image: url('../assets/image2.png'); /* Replace with your actual path */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding-top: 100px; /* Adjust the value to create the desired gap */
+}
+
+.add-listing-form {
+  background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  padding-top: 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Responsive width */
+  max-width: 400px; /* Optional: Set a max width */
   
-  .add-listing-form {
-    background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
-    padding: 40px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Responsive width */
-    max-width: 400px; /* Optional: Set a max width */
-  }
-  
-  .add-listing-form .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center; /* Center align the title text */
-  }
-  
-  .add-listing-form .input-field {
-    margin-bottom: 20px;
-  }
-  
-  .add-listing-form .input-field input,
-  .add-listing-form .input-field textarea {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    width: 100%;
-    resize: vertical; /* Allow textarea to be resized vertically */
-  }
-  
-  .add-listing-form .input-field input::placeholder,
-  .add-listing-form .input-field textarea::placeholder {
-    font-family: 'Arial', sans-serif; /* Change to your desired font family */
-    font-size: 14px; /* Adjust the font size */
-    color: #888; /* Placeholder text color */
-    font-style: italic; /* Optional: make the placeholder text italic */
-  }
-  
-  .add-listing-form .btn {
-    background-color: #007BFF; /* Blue background */
-    color: #fff; /* White text */
-    padding: 10px 20px; /* Padding around the text */
-    border: none; /* No border */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 100%; /* Full width */
-    font-size: 16px; /* Font size */
-  }
-  
-  .add-listing-form .btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .add-listing-form .error {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    text-align: center; /* Center align the error messages */
-  }
-  
-  .add-listing-form .radio-group {
-    display: flex;
-    gap: 10px; /* Reduced distance between radio buttons */
-    margin-bottom: 20px;
-  }
-  
-  .add-listing-form .radioInput {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px; /* Adjusted padding for better fit */
-    border-radius: 25px; /* Round edges */
-    cursor: pointer;
-    background-color: #f0f0f0;
-    border: 2px solid transparent; /* Transparent border initially */
-    transition: background-color 0.3s, border 0.3s, transform 0.3s;
-  }
-  
-  .add-listing-form .radioInput.active {
-    background-color: #007BFF; /* Active background color */
-    border: 2px solid #0056b3; /* Border color for active state */
-    color: #fff;
-    transform: scale(1.15); /* Slightly enlarge the button when active */
-  }
-  
-  .add-listing-form .radioInput span {
-    font-size: 16px;
-    color: #000000;
-  }
-  
-  .add-listing-form .radioInput:hover {
-    background-color: #007BFF; /* Light gray background on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
-  }
+}
+
+.add-listing-form .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Center align the title text */
+}
+
+.add-listing-form .input-field {
+  margin-bottom: 20px;
+}
+
+.add-listing-form .input-field input,
+.add-listing-form .input-field textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  resize: vertical; /* Allow textarea to be resized vertically */
+}
+
+.add-listing-form .input-field input::placeholder,
+.add-listing-form .input-field textarea::placeholder {
+  font-family: 'Arial', sans-serif; /* Change to your desired font family */
+  font-size: 14px; /* Adjust the font size */
+  color: #888; /* Placeholder text color */
+  font-style: italic; /* Optional: make the placeholder text italic */
+}
+
+.add-listing-form .btn {
+  background-color: #007BFF; /* Blue background */
+  color: #fff; /* White text */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* No border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 100%; /* Full width */
+  font-size: 16px; /* Font size */
+}
+
+.add-listing-form .btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.add-listing-form .error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center; /* Center align the error messages */
+}
+
+.add-listing-form .radio-group {
+  display: flex;
+  gap: 10px; /* Reduced distance between radio buttons */
+  margin-bottom: 20px;
+}
+
+.add-listing-form .radioInput {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px; /* Adjusted padding for better fit */
+  border-radius: 25px; /* Round edges */
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 2px solid transparent; /* Transparent border initially */
+  transition: background-color 0.3s, border 0.3s, transform 0.3s;
+}
+
+.add-listing-form .radioInput.active {
+  background-color: #007BFF; /* Active background color */
+  border: 2px solid #0056b3; /* Border color for active state */
+  color: #fff;
+  transform: scale(1.15); /* Slightly enlarge the button when active */
+}
+
+.add-listing-form .radioInput span {
+  font-size: 16px;
+  color: #000000;
+}
+
+.add-listing-form .radioInput:hover {
+  background-color: #007BFF; /* Light gray background on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}

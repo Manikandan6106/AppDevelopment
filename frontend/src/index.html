@@ -1,21 +1,65 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>WEBSITE</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="form">
-            <h1>Login Form</h1>
-            <form action="#" method="post">
-                <p>User Name</p>
-                <input type="email"
-                placeholder="Enter your Email">
-                <p>password</p>
-                <input type="password"
-                placeholder="Enter your password">
-                <button>submit</button>
-            </form>
-        </div>
-    </body>
-</html> -->
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Admin</title>
+    <link href="assets/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/nouislider/nouislider.min.css">
+    <!-- Style css -->
+      <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+     <!--**********************************
+    Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="assets/vendor/global/global.min.js"></script>
+    <script src="assets/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <!-- Apex Chart -->
+    <script src="assets/vendor/apexchart/apexchart.js"></script>
+    <script src="assets/vendor/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendor/wnumb/wNumb.js"></script>
+    <!-- Dashboard 1 -->
+    <script src="assets/js/dashboard/dashboard-1.js"></script>
+   
+    <script src="assets/js/dlabnav-init.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/styleSwitcher.js"></script>
+    <script src="assets/js/custom.min.js"></script>
+  </body>
+</html>
