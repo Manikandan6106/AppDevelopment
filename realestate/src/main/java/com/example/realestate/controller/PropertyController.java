@@ -4,6 +4,7 @@ import com.example.realestate.model.Property;
 import com.example.realestate.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,23 +17,27 @@ public class PropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @GetMapping
+    @GetMapping("/getAll")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<Property> getAllProperties() {
         return propertyService.getAllProperties();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public ResponseEntity<Property> getPropertyById(@PathVariable Long id) {
         Optional<Property> property = propertyService.getPropertyById(id);
         return property.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Property createProperty(@RequestBody Property property) {
         return propertyService.saveProperty(property);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Property> updateProperty(@PathVariable Long id, @RequestBody Property property) {
         if (!propertyService.getPropertyById(id).isPresent()) {
             return ResponseEntity.notFound().build();
@@ -43,6 +48,7 @@ public class PropertyController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Void> deleteProperty(@PathVariable Long id) {
         if (!propertyService.getPropertyById(id).isPresent()) {
             return ResponseEntity.notFound().build();
