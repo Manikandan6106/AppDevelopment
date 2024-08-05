@@ -1,0 +1,52 @@
+/* AdminSidebar container */
+.admin-sidebar {
+    position: fixed;
+    margin-top: 48px; /* Ensure the sidebar starts below the navbar */
+    top: 32px; /* Adjust this value based on your navbar height */
+    left: 0;
+    width: 180px; /* Adjust width as needed */
+    height: calc(100% - 60px); /* Full height minus navbar height */
+    background-color: #00000085; /* Sidebar background color */
+    color: #ffffff; /* Text color for better readability */
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    z-index: 1001; /* Ensure it appears above other content but below the navbar */
+    transform: translateX(-100%); /* Initially hidden */
+    transition: transform 0.3s ease; /* Smooth transition for hiding/showing */
+    font-weight: bold;
+  }
+  
+  /* Show AdminSidebar when visible */
+  .admin-sidebar.visible {
+    transform: translateX(0); /* Slide in */
+  }
+  
+  /* AdminSidebar navigation list */
+  .admin-sidebar ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* AdminSidebar navigation items */
+  .admin-sidebar li {
+    margin: 20px 0; /* Space between items */
+    font-size: 18px; /* Adjust font size as needed */
+  }
+  
+  /* AdminSidebar navigation links */
+  .admin-sidebar li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Text color */
+    display: block; /* Ensure the link takes up full width */
+    padding: 10px; /* Padding around the link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color and text color */
+  }
+  
+  /* Hover effect for AdminSidebar links */
+  .admin-sidebar li a:hover {
+    background-color: #f1f1f1a3; /* Background color on hover */
+    color: #000000; /* Text color on hover */
+  }
+  

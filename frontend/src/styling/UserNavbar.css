@@ -41,6 +41,7 @@ body, html {
     width: 60px; /* Updated to match admin logo size */
     height: auto; 
     cursor: pointer;
+ 
 }
 
 /* Ensure user-logo-link styles are not affecting image display */
@@ -51,6 +52,9 @@ body, html {
     padding: 5px;
     transition: color 0.5s;
     cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
 }
 
 /* Optional additional styling if needed */
@@ -58,7 +62,7 @@ body, html {
     display: block;
     height: 50px;
     width:  50px;
-}
+ }
 
 /* User logo hover effects */
 .user-logo-link:hover .user-logo {

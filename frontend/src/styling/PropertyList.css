@@ -127,7 +127,7 @@
 
 /* Button Base Styles */
 .contact-button,
-.request-details-button,
+.book-now-button,
 .edit-button {
     padding: 12px 24px;
     width: 100px;
@@ -150,38 +150,31 @@
     background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
-/* Request Details Button */
-.request-details-button {
-    background: linear-gradient(90deg, #28a745, #218838);
-}
-
- 
-
-/* Button Hover Effects */
 .contact-button:hover {
     background: linear-gradient(90deg, #0056b3, #003d7a);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.05); /* Zoom effect */
 }
 
-.request-details-button:hover {
+/* Book Now Button */
+.book-now-button {
+    background: linear-gradient(90deg, #218838, #1c7430);
+    height: 45px;
+}
+
+.book-now-button:hover {
     background: linear-gradient(90deg, #218838, #1c7430);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.05); /* Zoom effect */
 }
 
- /* Edit Button Specific Styles */
- 
+/* Edit Button */
+.edit-button {
+    background: linear-gradient(90deg, #218838, #1c7430);
+}
 
 .edit-button:hover {
-    background-color: #218838;
+    background: linear-gradient(90deg, #218838, #1c7430);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Same shadow on hover as other buttons */
     transform: scale(1.05); /* Zoom effect */
 }
-.edit-button{
-    background-color: #28a745;
-}
-.request-details-button{
-    height: 45px;
-}
- 

@@ -12,16 +12,21 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import AdminHome from './components/AdminHome';
 import About2 from './components/About2';
 import UserHome from './components/UserHome';
+import UserServices from './components/UserServices';
+import UserPrivacy from './components/UserPrivacy';
+import Booking from './components/Booking';
 import './styling/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import p1 from './assets/p1.png';
 import p2 from './assets/p2.png';
 import p3 from './assets/p3.png';
 import p4 from './assets/p4.png';
 import About3 from './components/About3';
-import UserServices from './components/UserServices';
-import UserPrivacy from './components/UserPrivacy';
-
+import ReqMain from './components/ReqMain';
+import Feedback from './components/Feedback';
+ 
 const App = () => {
   const [properties, setProperties] = useState([
     {
@@ -70,8 +75,18 @@ const App = () => {
     },
   ]);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const handleAddProperty = (newProperty) => {
     setProperties([...properties, newProperty]);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   return (
@@ -81,21 +96,25 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin" element={<AdminHome properties={properties} />} />
         <Route path="/user" element={<UserHome properties={properties} />} />
         <Route path="/admin/about2" element={<About2 />} />
         <Route path="/user/about" element={<About3 />} />
+        <Route path="/user/booknow" element={<Booking />} />
         <Route path="/user/services" element={<UserServices />} />
+        <Route path="/user/contact" element={<Contact />} />
         <Route path="/user/privacy" element={<UserPrivacy />} />
-        <Route path="/user/propertylist" element={<PropertyList properties={properties} isAdmin={false} />} />
+        <Route path="/user/ReqMain" element={<ReqMain />} />
+        <Route path="/user/Feedback" element={<Feedback />} />
+        <Route path="/user/propertylist" element={<PropertyList properties={properties} isAdmin={false} isLoggedIn={isLoggedIn} />} />
         <Route path="/admin/services" element={<Services />} />
         <Route path="/admin/privacy" element={<PrivacyPolicy />} />
         <Route path="/admin/addList" element={<AddListing onAddProperty={handleAddProperty} />} />
-        <Route path="/admin/propertylist" element={<PropertyList properties={properties} isAdmin={true} />} />
+        <Route path="/admin/propertylist" element={<PropertyList properties={properties} isAdmin={true} isLoggedIn={isLoggedIn} />} />
         <Route path="/add-listing" element={<AddListing onAddProperty={handleAddProperty} />} />
-        <Route path="/propertylist" element={<PropertyList properties={properties} isAdmin={false} />} />
+        <Route path="/propertylist" element={<PropertyList properties={properties} isAdmin={false} isLoggedIn={isLoggedIn} />} />
       </Routes>
     </div>
   );

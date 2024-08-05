@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styling/PropertyList.css'; // Ensure the path is correct
 import Navbar from './Navbar';
 import UserNavbar from './UserNavbar';
 import AdminNavbar from './AdminNavbar';
 
-const PropertyList = ({ properties, isAdmin }) => {
+const PropertyList = ({ properties, isAdmin, isLoggedIn }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const isStandalonePage = location.pathname === '/propertylist' || location.pathname === '/admin/propertylist' || location.pathname === '/user/propertylist';
   const isUserPage = location.pathname.startsWith('/user');
   const isAdminPage = location.pathname.startsWith('/admin');
+  const isHomepage = location.pathname === '/' || location.pathname === '/propertylist';
 
   // Determine the appropriate Navbar component
   const renderNavbar = () => {
@@ -21,6 +24,16 @@ const PropertyList = ({ properties, isAdmin }) => {
       return <UserNavbar />;
     }
     return <Navbar />;
+  };
+
+  const handleBookNowClick = () => {
+    // Always navigate to /user/booknow
+    console.log('Navigating to /user/booknow');
+    navigate('/user/booknow');
+  };
+
+  const handleContactClick = (property) => {
+    navigate('/contact', { state: { property } });
   };
 
   return (
@@ -48,8 +61,19 @@ const PropertyList = ({ properties, isAdmin }) => {
                 <p className="property-option"><strong>Option:</strong> {property.propertyOption}</p>
                 <p className="property-location"><strong>Location:</strong> {property.location}</p>
                 <div className="property-buttons">
-                  <button className="contact-button">Contact</button>
-                  <button className="request-details-button"><p>Request Details</p></button>
+                  {isAdmin ? (
+                    <button className="contact-button">Remove</button>
+                  ) : (
+                    <button 
+                      className="contact-button" 
+                      onClick={() => handleContactClick(property)}
+                    >
+                      Contact
+                    </button>
+                  )}
+                  {(isUserPage || isHomepage) && (
+                    <button className="book-now-button" onClick={handleBookNowClick}>Book Now</button>
+                  )}
                   {isAdmin && <button className="edit-button">Edit</button>}
                 </div>
               </div>
@@ -73,11 +97,13 @@ PropertyList.propTypes = {
     propertyOption: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
   })).isRequired,
-  isAdmin: PropTypes.bool
+  isAdmin: PropTypes.bool,
+  isLoggedIn: PropTypes.bool,
 };
 
 PropertyList.defaultProps = {
-  isAdmin: false
+  isAdmin: false,
+  isLoggedIn: false,
 };
 
 export default PropertyList;

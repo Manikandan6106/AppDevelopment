@@ -17,7 +17,7 @@
   border-radius: 30px; /* Increased border radius for more rounded edges */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 600px; /* Adjust as needed */
+  max-width: 400px; /* Adjust as needed */
 }
 
 .contact-form h2 {
@@ -38,16 +38,47 @@
 }
 
 .input-field input,
-.input-field textarea {
+.input-field select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
 }
 
-.input-field textarea {
-  resize: vertical; /* Allows vertical resizing */
-  height: 100px; /* Set a default height */
+.phone-number {
+  flex-grow: 1; /* Allows the phone number field to take remaining width */
+  margin-left: 10px; /* Space between select and input fields */
+}
+
+.select-field {
+  width: 33% !important; /* Ensures the select element takes up 25% of the container width */
+  -moz-appearance: none; /* Removes default styling in Firefox */
+  appearance: none; /* Removes default styling in other browsers */
+  background-position: right 10px center; /* Positions the custom dropdown arrow */
+  background-image: url('../assets/select-arrow.png'); /* Custom arrow image */
+  background-repeat: no-repeat; /* Ensures the arrow image doesn't repeat */
+  background-size: 1em; /* Adjusts the size of the dropdown arrow */
+  height: 38px; /* Sets the height of the select element */
+  border: 2px solid #d5d5d5; /* Light gray border */
+  color: #989696; /* Gray text color */
+  padding: 10px 12px; /* Padding inside the select element */
+  font-weight: 500; /* Medium font weight */
+  font-size: 14px; /* Font size for readability */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and shadow */
+  margin-bottom: 15px;
+}
+
+.select-field:focus {
+  border-color: #4CAF50; /* Green border on focus */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Enhanced shadow on focus */
+  outline: none; /* Removes default outline */
+}
+
+.select-field option {
+  padding: 10px; /* Space inside each option */
 }
 
 .btn {
@@ -100,4 +131,12 @@
   color: #000;
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+/* Additional styling for form-group */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between select and input fields */
+  padding-bottom: 20px;
 }

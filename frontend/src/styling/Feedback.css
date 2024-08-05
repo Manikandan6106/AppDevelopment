@@ -1,0 +1,121 @@
+/* Main container styling */
+#div-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e2e8f0; /* Light gray-blue background */
+    background-image: url('../assets/StockCake-Touchscreen\ Interface\ Interaction_1722679919.jpg'); /* Ensure the correct path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Card styling */
+.landsters-feedback-card {
+    width: 100%;
+    max-width: 500px; /* Adjust max-width for the larger form */
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 350px;
+    background-color: rgba(255, 255, 255, 0.497); /* Adjusted transparency */
+}
+
+/* Form title */
+.landsters-feedback-card-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: #000000; /* Darker gray-blue */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding-bottom: 10px;
+}
+
+/* Form group styling */
+.landsters-feedback-form-group {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.landsters-feedback-form-group label {
+    font-size: 16px;
+    color: #000000; /* Medium gray-blue */
+    margin-bottom: 8px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.landsters-feedback-form-control {
+    width: 100%;
+    padding: 14px 16px; /* Larger padding */
+    border-radius: 10px;
+    border: none; /* Removed border */
+    background-color: #f7fafc; /* Very light gray-blue background */
+    font-size: 15px; /* Slightly larger font */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Lighter inner shadow */
+    transition: background-color 0.3s ease;
+}
+
+.landsters-feedback-form-control:focus {
+    background-color: #edf2f7; /* Light gray-blue background on focus */
+    outline: none;
+}
+
+/* Placeholder styling */
+.landsters-feedback-form-control::placeholder {
+    color: #a0aec0; /* Light gray-blue placeholder color */
+    font-style: italic; /* Italic style for placeholders */
+}
+
+/* Error message styling */
+.landsters-feedback-alert {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+/* Button styling */
+.landsters-feedback-submit-btn {
+    width: 100%;
+    background-color: #007BFF; /* Blue background */
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for a stronger impact */
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.landsters-feedback-submit-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Thank you message styling */
+.landsters-feedback-thank-you-message {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .landsters-feedback-card-title {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    .landsters-feedback-card {
+        padding: 30px;
+        max-width: 90%; /* Reduce max-width for smaller screens */
+    }
+}
