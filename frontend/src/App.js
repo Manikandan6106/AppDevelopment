@@ -30,6 +30,7 @@ import AdminBooking from './components/AdminBooking';
 import AdminFeedback from './components/AdminFeedback';
 import EditProperty from './components/EditProperty';
 import AdminContact from './components/AdminContact';
+import SoldProperty from './components/SoldProperty';
 
 const App = () => {
   const [properties, setProperties] = useState([
@@ -122,6 +123,7 @@ const App = () => {
         <Route path="/admin-bookings" element={< AdminBooking />} />
         <Route path="/admin-feedbacks" element={< AdminFeedback />} />
         <Route path="/admin-contact" element={<AdminContact />} />
+        <Route path="/admin/sold-property" element={<SoldProperty />} />
         <Route path="/propertylist" element={<PropertyList properties={properties} isAdmin={false} isLoggedIn={isLoggedIn} />} />
         <Route path="/admin/edit-property/:id" element={<EditProperty />} />
 

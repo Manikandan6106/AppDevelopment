@@ -1,14 +1,14 @@
 package com.example.realestate.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+
 @Entity
 public class Booking {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,12 +17,18 @@ public class Booking {
     private String email;
     private String phone;
     private String address;
+    private Long propertyId;  
+    private boolean approved;
 
-    @Column(name = "property_id")
-    private Long propertyId;
+    public boolean isApproved() {
+        return approved;
+    }
 
-    // Getters and Setters
-    public Long getId() {
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+     public Long getId() {
         return id;
     }
 

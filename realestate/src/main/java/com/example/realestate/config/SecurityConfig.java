@@ -64,7 +64,8 @@ public class SecurityConfig {
                                                                 "/api/properties/**",
                                                                 "/api/maintain/**",
                                                                 "/api/feedback/**",
-                                                                "/api/contact/**")
+                                                                "/api/contact/**",
+                                                                "/api/sold-properties/**")
                                                 .authenticated())
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -1,7 +1,9 @@
- import React, { useState, useEffect } from 'react';
+// AdminBooking.js
+
+import React, { useState, useEffect } from 'react';
 import AdminNavbar from './AdminNavbar';
 import AdminSidebar from './AdminSidebar';
-import '../styling/AdminBooking.css'; 
+import '../styling/AdminBooking.css';
 
 const AdminBooking = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -20,7 +22,9 @@ const AdminBooking = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setBookings(data);
+          // Filter out approved bookings
+          const unapprovedBookings = data.filter(booking => !booking.approved);
+          setBookings(unapprovedBookings);
         } else {
           console.error('Failed to fetch bookings');
         }
@@ -34,6 +38,53 @@ const AdminBooking = () => {
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
+  };
+
+  const handleApprove = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const bookingToUpdate = bookings.find(booking => booking.id === id);
+
+      const response = await fetch(`http://127.0.0.1:8080/api/bookings/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ ...bookingToUpdate, approved: true }),
+      });
+
+      if (response.ok) {
+        // Remove the approved booking from the local state
+        setBookings(bookings.filter(booking => booking.id !== id));
+      } else {
+        console.error('Failed to approve booking. Status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error approving booking:', error);
+    }
+  };
+
+  const handleDecline = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://127.0.0.1:8080/api/bookings/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        // Remove the declined booking from the local state
+        setBookings(bookings.filter(booking => booking.id !== id));
+      } else {
+        console.error('Failed to decline booking');
+      }
+    } catch (error) {
+      console.error('Error declining booking:', error);
+    }
   };
 
   return (
@@ -51,6 +102,7 @@ const AdminBooking = () => {
               <th>Phone</th>
               <th>Address</th>
               <th>Property ID</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -62,6 +114,24 @@ const AdminBooking = () => {
                 <td>{booking.phone}</td>
                 <td>{booking.address}</td>
                 <td>{booking.propertyId}</td>
+                <td>
+                  {!booking.approved && (
+                    <div className="button-container">
+                      <button
+                        className="approve-btn"
+                        onClick={() => handleApprove(booking.id)}
+                      >
+                        Approve
+                      </button>
+                      <button
+                        className="decline-btn"
+                        onClick={() => handleDecline(booking.id)}
+                      >
+                        Decline
+                      </button>
+                    </div>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

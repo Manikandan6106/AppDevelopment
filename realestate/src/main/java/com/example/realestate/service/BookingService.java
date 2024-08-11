@@ -18,6 +18,10 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+    public List<Booking> getApprovedBookings() {
+        return bookingRepository.findByApproved(true);
+    }
+
     public Optional<Booking> getBookingById(Long id) {
         return bookingRepository.findById(id);
     }

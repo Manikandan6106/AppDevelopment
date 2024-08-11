@@ -1,4 +1,4 @@
-.admin-booking-container {
+.sold-property-container {
     display: flex;
     flex-direction: row;
     transition: margin-left 0.3s ease;
@@ -7,11 +7,11 @@
     background-size: cover;
 }
 
-.admin-booking-container.sidebar-open {
+.sold-property-container.sidebar-open {
     margin-left: 250px; /* Adjust based on sidebar width */
 }
 
-.admin-booking-content {
+.sold-property-content {
     flex: 1;
     margin: 20px;
     padding: 20px;
@@ -24,7 +24,7 @@
     overflow-x: auto;
 }
 
-.admin-booking-heading {
+.sold-property-heading {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
@@ -34,7 +34,7 @@
     letter-spacing: 1px;
 }
 
-.admin-booking-table {
+.sold-property-table {
     width: calc(100% - 60px); /* Reduce width by 20px on each side */
     border-collapse: collapse;
     max-width: 1060px; /* Adjust based on desired reduction */
@@ -45,114 +45,57 @@
     overflow: hidden; /* Ensure rounded corners for the table */
 }
 
-.admin-booking-table thead {
+.sold-property-table thead {
     background: linear-gradient(to right, #007bff, #00c6ff); /* Gradient header */
     color: #ffffff;
 }
 
-.admin-booking-table th {
+.sold-property-table th {
     padding: 15px 20px;
     font-size: 1.1rem;
     font-weight: 600;
-    text-align: center; /* Center text horizontally */
+    text-align: left;
     border-bottom: 2px solid #ddd;
     background: #007bff; /* Gradient header background */
     color: #ffffff; /* Ensure text color is set */
     transition: none; /* Ensure no transition effects */
 }
 
-.admin-booking-table td {
+.sold-property-table td {
     padding: 15px 20px;
     font-size: 1rem;
     color: #333;
     border-bottom: 1px solid #ddd;
-    text-align: center; /* Center text horizontally */
 }
 
-.admin-booking-table tr:nth-child(even) {
+.sold-property-table tr:nth-child(even) {
     background-color: #f5f5f5;
 }
 
-.admin-booking-table tr:hover {
+.sold-property-table tr:hover {
     background-color: #e9ecef;
     transform: translateY(-2px);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.admin-booking-table th:first-child,
-.admin-booking-table td:first-child {
+.sold-property-table th:first-child,
+.sold-property-table td:first-child {
     border-top-left-radius: 10px;
 }
 
-.admin-booking-table th:last-child,
-.admin-booking-table td:last-child {
+.sold-property-table th:last-child,
+.sold-property-table td:last-child {
     border-top-right-radius: 10px;
 }
 
-/* Button Container */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; /* Ensure full width */
-    max-width: 1060px; /* Match table's max-width */
-    margin-top: 20px; /* Space above the buttons */
-}
-
-/* Approve Button */
-.approve-btn {
-    background: linear-gradient(90deg, #28a745, #218838);
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Decline Button */
-.decline-btn {
-    background: linear-gradient(90deg, #dc3545, #c82333);
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Button Hover Effects */
-.approve-btn:hover {
-    background: linear-gradient(90deg, #218838, #1c7430);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05); /* Zoom effect */
-}
-
-.decline-btn:hover {
-    background: linear-gradient(90deg, #c82333, #a71d2a);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05); /* Zoom effect */
-}
-
 @media (max-width: 768px) {
-    .admin-booking-content {
+    .sold-property-content {
         margin: 10px;
         padding: 10px;
         padding-top: 60px; /* Adjust padding-top for smaller screens */
     }
 
-    .admin-booking-table {
+    .sold-property-table {
         font-size: 0.9rem;
         width: calc(100% - 20px); /* Adjust width for smaller screens */
     }

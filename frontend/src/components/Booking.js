@@ -27,40 +27,46 @@ const Booking = () => {
     e.preventDefault();
     const isValid = validateBooking();
     if (isValid) {
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:8080/api/bookings/create",
-          { name, email, phone, address, propertyId },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
-              'Content-Type': 'application/json'
+        try {
+            const response = await axios.post(
+                "http://127.0.0.1:8080/api/bookings/create",
+                { name, email, phone, address, propertyId },
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+
+            console.log('Response:', response); // Log the response for debugging
+
+            // Adjusted status check to include 201 Created
+            if (response.status === 201) {
+                toast.success("Booking submitted successfully");
+                setName('');
+                setEmail('');
+                setPhone('');
+                setAddress('');
+
+                setTimeout(() => {
+                    navigate("/user");
+                }, 3000); // 3 seconds
+            } else {
+                toast.error(`Unexpected response status: ${response.status}`);
             }
-          }
-        );
-
-        if (response.status === 201) {
-          toast.success("Booking submitted successfully");
-          setName('');
-          setEmail('');
-          setPhone('');
-          setAddress('');
-
-          setTimeout(() => {
-            navigate("/user");
-          }, 3000); // 3 seconds
-        } else {
-          toast.error(`Failed to submit booking: ${response.statusText}`);
+        } catch (error) {
+            console.error('Error:', error); // Log error for debugging
+            if (error.response) {
+                toast.error(`An error occurred: ${error.response.data.message || error.response.statusText}`);
+            } else {
+                toast.error(`An error occurred: ${error.message}`);
+            }
         }
-      } catch (error) {
-        if (error.response) {
-          toast.error(`An error occurred: ${error.response.data.message || error.response.statusText}`);
-        } else {
-          toast.error(`An error occurred: ${error.message}`);
-        }
-      }
     }
-  };
+};
+
+
 
   const validateBooking = () => {
     const errors = {};
@@ -74,12 +80,15 @@ const Booking = () => {
     return Object.keys(errors).length === 0;
   };
 
+   
+
   return (
     <div className="booking-page-container">
       <UserNavbar />
       <div className="booking-form-container">
         <h2 className="booking-title">Book Your Property</h2>
         <form onSubmit={handleSubmit} className="booking-form">
+          {/* Form fields */}
           <div className="booking-input-field">
             <label htmlFor="name">Name:</label>
             <input
@@ -120,7 +129,7 @@ const Booking = () => {
             {errors.address && <div className="booking-error">{errors.address}</div>}
           </div>
           <button type="submit" className="booking-btn">Submit Booking</button>
-        </form>
+         </form>
       </div>
       <ToastContainer />
     </div>
