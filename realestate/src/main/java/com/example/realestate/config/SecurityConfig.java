@@ -48,19 +48,23 @@ public class SecurityConfig {
                                                 request -> request.requestMatchers(
                                                                 "/api/users/create",
                                                                 "/api/auth/home",
-                                                                "/api/auth/authenticate").permitAll())
+                                                                "/api/auth/authenticate","/**").permitAll())
                                 .authorizeHttpRequests(request -> request
                                                 .requestMatchers(
                                                                 "/v3/api-docs/**",
                                                                 "/swagger-ui.html",
-                                                                "/swagger-ui/**")
+                                                                "/swagger-ui/**",
+                                                                "/**")
                                                 .permitAll())
                                 .authorizeHttpRequests(requests -> requests
                                                 .requestMatchers(
                                                                 "/api/users/**",
                                                                 "/api/auth/**",
                                                                 "/api/bookings/**",
-                                                                "/api/properties/**")
+                                                                "/api/properties/**",
+                                                                "/api/maintain/**",
+                                                                "/api/feedback/**",
+                                                                "/api/contact/**")
                                                 .authenticated())
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

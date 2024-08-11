@@ -1,30 +1,54 @@
 import React, { useState } from 'react';
 import '../styling/Signup.css';
 import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const isValid = validateSignup();
-    if (isValid) {
-      // Handle signup API integration here
-      console.log('Signup successful!');
+
+    if (!validateSignup()) {
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8080/api/users/create",
+        {
+          id: 0,
+          name: name,
+          email: email,
+          password: password,
+          roles: "USER",
+        }
+      );
+
+      if (response.status === 201) {
+        alert("User created successfully");
+        navigate("/login");
+      } else {
+        alert("User creation failed");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred during user creation");
     }
   }
 
   const validateSignup = () => {
     const errors = {};
-    if (!username) {
-      errors.username = 'Username is required';
-    } else if (username.length < 3) {
-      errors.username = 'Username must be at least 3 characters';
+    if (!name) {
+      errors.name = 'Name is required';
+    } else if (name.length < 3) {
+      errors.name = 'Name must be at least 3 characters';
     }
     if (!email) {
       errors.email = 'Email is required';
@@ -47,27 +71,51 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <Navbar/>
+      <Navbar />
       <div className="signup-form">
         <h2 className="title">Sign up</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-field">
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
-            {errors.username && <div className="error">{errors.username}</div>}
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+            />
+            {errors.name && <div className="error">{errors.name}</div>}
           </div>
           <div className="input-field">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+            />
             {errors.email && <div className="error">{errors.email}</div>}
           </div>
           <div className="input-field">
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
             {errors.password && <div className="error">{errors.password}</div>}
           </div>
           <div className="input-field">
-            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+            <input
+              type="password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
+            />
             {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
           </div>
-          <Link to="/login"><button type="submit" className="btn">Sign up</button></Link>
+          <button type="submit" className="btn">Sign up</button>
           <p>Already have an account? <a href="/login">Login</a></p>
         </form>
       </div>

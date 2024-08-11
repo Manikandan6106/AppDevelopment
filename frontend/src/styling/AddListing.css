@@ -10,6 +10,7 @@
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   padding-top: 100px; /* Adjust the value to create the desired gap */
+  padding-bottom: 20px; /* Adjust the value to create the desired gap */
 }
 
 .add-listing-form {
@@ -62,6 +63,7 @@
   cursor: pointer; /* Pointer cursor on hover */
   width: 100%; /* Full width */
   font-size: 16px; /* Font size */
+  margin-top: -7px;
 }
 
 .add-listing-form .btn:hover {

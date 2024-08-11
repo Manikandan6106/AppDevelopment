@@ -12,14 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.realestate.model.User;
 
 public class UsersDetails implements UserDetails {
-    private String username;
+    private String email;
     private String password;
     private List<GrantedAuthority> authorities;
 
     public UsersDetails(User user) {
-        this.username = user.getUsername(); // Adjust according to your User model
+        this.email = user.getEmail(); // Use email instead of username
         this.password = user.getPassword();
-        // Adjust roles management if your User model has a different approach
         this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
@@ -36,8 +35,8 @@ public class UsersDetails implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
-        return username;
+    public String getUsername() { // This method name cannot be changed due to the interface contract
+        return email; // Return email instead
     }
 
     @Override

@@ -1,27 +1,24 @@
 package com.example.realestate.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Booking {
+public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String email;
-    private String phone;
-    private String address;
-
-    @Column(name = "property_id")
-    private Long propertyId;
+    private String phone; // Phone now includes the country code
+    private String message; // New field for storing the message
+    private boolean termsAccepted;
 
     // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -54,19 +51,19 @@ public class Booking {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getMessage() {
+        return message;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public Long getPropertyId() {
-        return propertyId;
+    public boolean isTermsAccepted() {
+        return termsAccepted;
     }
 
-    public void setPropertyId(Long propertyId) {
-        this.propertyId = propertyId;
+    public void setTermsAccepted(boolean termsAccepted) {
+        this.termsAccepted = termsAccepted;
     }
 }

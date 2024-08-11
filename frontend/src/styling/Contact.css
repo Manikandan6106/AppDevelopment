@@ -1,4 +1,4 @@
-.contact-container {
+.contact-container-unique {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +11,8 @@
   padding: 2rem;
 }
 
-.contact-form {
-  background-color: rgba(255, 255, 255, 0.35); /* Adjusted transparency */
+.contact-form-unique {
+  background-color: rgba(255, 255, 255, 0.649); /* Adjusted transparency */
   padding: 40px;
   border-radius: 30px; /* Increased border radius for more rounded edges */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -20,38 +20,45 @@
   max-width: 400px; /* Adjust as needed */
 }
 
-.contact-form h2 {
+.contact-form-unique h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center; /* Center align the title text */
 }
 
-.contact-form p {
+.contact-form-unique p {
   font-size: 20px; /* Increased font size for the text paragraphs */
   margin-bottom: 20px;
   color: #333; /* Dark color */
 }
 
-.input-field {
+.contact-input-field {
   margin-bottom: 20px;
 }
 
-.input-field input,
-.input-field select {
+.contact-input-field input,
+.contact-input-field select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
 }
+.contact-input-field textarea{
+ margin-top: 25px;
+ width: 100%;
+ border-radius: 5px;
+ border: 1px solid #ccc;
+height: 90px;
+}
 
-.phone-number {
+.contact-phone-number {
   flex-grow: 1; /* Allows the phone number field to take remaining width */
   margin-left: 10px; /* Space between select and input fields */
 }
 
-.select-field {
-  width: 33% !important; /* Ensures the select element takes up 25% of the container width */
+.contact-select-field {
+  width: 35% !important; /* Ensures the select element takes up 35% of the container width */
   -moz-appearance: none; /* Removes default styling in Firefox */
   appearance: none; /* Removes default styling in other browsers */
   background-position: right 10px center; /* Positions the custom dropdown arrow */
@@ -68,20 +75,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
   cursor: pointer; /* Pointer cursor on hover */
   transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and shadow */
-  margin-bottom: 15px;
 }
 
-.select-field:focus {
+.contact-select-field:focus {
   border-color: #4CAF50; /* Green border on focus */
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Enhanced shadow on focus */
   outline: none; /* Removes default outline */
 }
 
-.select-field option {
+.contact-select-field option {
   padding: 10px; /* Space inside each option */
 }
 
-.btn {
+.contact-btn {
   background-color: #4CAF50; /* Green background */
   color: #fff; /* White text */
   padding: 10px 20px; /* Padding around the text */
@@ -92,18 +98,18 @@
   font-size: 16px; /* Font size */
 }
 
-.btn:hover {
+.contact-btn:hover {
   background-color: #3e8e41; /* Darker green on hover */
 }
 
-.error {
+.contact-error {
   color: red;
   font-size: 14px;
   margin-top: 5px;
   text-align: center; /* Center align the error messages */
 }
 
-.modal-overlay {
+.contact-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -116,27 +122,79 @@
   z-index: 1000; /* Ensure it stays above other content */
 }
 
-.modal {
-  background-color: rgba(255, 255, 255, 0.679);  padding: 20px;
+.contact-modal {
+  background-color: rgba(255, 255, 255, 0.679);
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center; /* Center align the modal content */
 }
 
-.modal p {
+.contact-modal p {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
   color: #000;
-  font-size: 18px;
-  margin-bottom: 20px;
 }
 
-/* Additional styling for form-group */
-.form-group {
+.contact-form-group {
   display: flex;
   align-items: center;
   gap: 10px; /* Space between select and input fields */
   padding-bottom: 20px;
+}
+
+.contact-phone-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add space below phone input */
+}
+
+.PhoneInputInput {
+  flex: 1;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background-color: #f0f0f0;
+}
+
+.PhoneInputCountrySelect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  min-width: 6rem;
+  z-index: 10;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.PhoneInputCountry {
+  margin-right: 0;
+}
+
+.contact-input-field textarea.contact-message-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  resize: vertical; /* Allows the user to resize the message box vertically */
+  font-family: inherit; /* Ensure the font matches the rest of the form */
+  margin-bottom: 20px; /* Add space below message input */
+}
+
+.contact-input-field textarea.contact-message-field:focus {
+  border-color: #4CAF50; /* Green border on focus */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Enhanced shadow on focus */
+  outline: none; /* Removes default outline */
+}
+
+.contact-input-field textarea.contact-message-field::placeholder {
+  color: #999; /* Light gray placeholder text */
+  opacity: 1; /* Ensure visibility */
 }

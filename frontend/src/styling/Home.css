@@ -24,8 +24,7 @@ body, html {
   background: url('../assets/image1.png') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh; /* Ensure the container takes full height */
-  padding-bottom: 80px; /* Ensure there's space for the footer */
-  display: flex;
+   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
@@ -175,7 +174,7 @@ body, html {
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
-}
+ }
 
 /* Ensure the footer is at the bottom */
 .footer {

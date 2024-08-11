@@ -20,15 +20,7 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Show navbar */
-.admin-navbar.visible {
-    top: 0;
-}
-
-/* Hide navbar */
-.admin-navbar.hidden {
-    top: -100px;
-}
+ 
 
 /* Logo container */
 .admin-logo-container {

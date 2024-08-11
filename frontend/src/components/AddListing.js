@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styling/AddListing.css';
-import Navbar from './Navbar';
 import AdminNavbar from './AdminNavbar';
 
 const AddListing = ({ onAddProperty }) => {
@@ -9,8 +9,8 @@ const AddListing = ({ onAddProperty }) => {
   const [description, setDescription] = useState('');
   const [type, setType] = useState('');
   const [image, setImage] = useState('');
-  const [price, setPrice] = useState(''); // Added new field for price
-  const [location, setLocation] = useState(''); // Added new field for location
+  const [price, setPrice] = useState('');
+  const [location, setLocation] = useState('');
   const [propertyOption, setPropertyOption] = useState('sale');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -24,21 +24,33 @@ const AddListing = ({ onAddProperty }) => {
         description,
         type,
         image,
-        price, // Added price to the property object
-        location, // Added location to the property object
+        price,
+        location,
         propertyOption,
       };
-      onAddProperty(newProperty);
-      // Reset form
-      setTitle('');
-      setDescription('');
-      setType('');
-      setImage('');
-      setPrice(''); // Reset price
-      setLocation(''); // Reset location
-      setPropertyOption('sale');
-      // Redirect to the specified page
-      navigate('/login/admin/addListing');
+
+      // Retrieve the token from localStorage (or wherever it is stored)
+      const token = localStorage.getItem('token'); // Update with your storage method
+
+      axios.post('http://127.0.0.1:8080/api/properties/create', newProperty, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(response => {
+        console.log('Property added successfully:', response.data);
+        setTitle('');
+        setDescription('');
+        setType('');
+        setImage('');
+        setPrice('');
+        setLocation('');
+        setPropertyOption('sale');
+        navigate('/admin');
+      })
+      .catch(error => {
+        console.error('There was an error adding the property!', error);
+      });
     }
   };
 
@@ -48,8 +60,8 @@ const AddListing = ({ onAddProperty }) => {
     if (!description) errors.description = 'Description is required';
     if (!type) errors.type = 'Type is required';
     if (!image) errors.image = 'Image URL is required';
-    if (!price) errors.price = 'Price is required'; // Validate price
-    if (!location) errors.location = 'Location is required'; // Validate location
+    if (!price) errors.price = 'Price is required';
+    if (!location) errors.location = 'Location is required';
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -64,6 +76,7 @@ const AddListing = ({ onAddProperty }) => {
       <div className="add-listing-form">
         <h2 className="title">List Your Property</h2>
         <form onSubmit={handleSubmit}>
+          {/* Form fields */}
           <div className="input-field">
             <input
               type="text"

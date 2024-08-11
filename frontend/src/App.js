@@ -15,18 +15,22 @@ import UserHome from './components/UserHome';
 import UserServices from './components/UserServices';
 import UserPrivacy from './components/UserPrivacy';
 import Booking from './components/Booking';
+import ReqMain from './components/ReqMain';
+import Feedback from './components/Feedback';
 import './styling/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 import p1 from './assets/p1.png';
 import p2 from './assets/p2.png';
 import p3 from './assets/p3.png';
 import p4 from './assets/p4.png';
 import About3 from './components/About3';
-import ReqMain from './components/ReqMain';
-import Feedback from './components/Feedback';
- 
+import AdminMaintain from './components/AdminMaintain';
+import AdminBooking from './components/AdminBooking';
+import AdminFeedback from './components/AdminFeedback';
+import EditProperty from './components/EditProperty';
+import AdminContact from './components/AdminContact';
+
 const App = () => {
   const [properties, setProperties] = useState([
     {
@@ -84,7 +88,7 @@ const App = () => {
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
-
+  
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
@@ -114,7 +118,13 @@ const App = () => {
         <Route path="/admin/addList" element={<AddListing onAddProperty={handleAddProperty} />} />
         <Route path="/admin/propertylist" element={<PropertyList properties={properties} isAdmin={true} isLoggedIn={isLoggedIn} />} />
         <Route path="/add-listing" element={<AddListing onAddProperty={handleAddProperty} />} />
+        <Route path="/admin-maintenance" element={< AdminMaintain />} />
+        <Route path="/admin-bookings" element={< AdminBooking />} />
+        <Route path="/admin-feedbacks" element={< AdminFeedback />} />
+        <Route path="/admin-contact" element={<AdminContact />} />
         <Route path="/propertylist" element={<PropertyList properties={properties} isAdmin={false} isLoggedIn={isLoggedIn} />} />
+        <Route path="/admin/edit-property/:id" element={<EditProperty />} />
+
       </Routes>
     </div>
   );

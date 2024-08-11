@@ -1,0 +1,103 @@
+.admin-feedback-container {
+    display: flex;
+    flex-direction: row;
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    background: url('../assets/StockCake-Sunlit Empty Room_1723311282.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .admin-feedback-container.sidebar-open {
+    margin-left: 250px; /* Adjust based on sidebar width */
+  }
+  
+  .admin-feedback-content {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    padding-top: 80px; /* Ensure content starts below the navbar */
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+  }
+  
+  .admin-feedback-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff; /* Adjust based on background image */
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    letter-spacing: 1px;
+  }
+  
+  .admin-feedback-table {
+    width: calc(100% - 60px); /* Reduce width by 20px on each side */
+    border-collapse: collapse;
+    max-width: 1060px; /* Adjust based on desired reduction */
+    margin-top: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background */
+    border-radius: 10px;
+    overflow: hidden; /* Ensure rounded corners for the table */
+  }
+  
+  .admin-feedback-table thead {
+    background: linear-gradient(to right, #007bff, #00c6ff); /* Gradient header */
+    color: #ffffff;
+  }
+  
+  .admin-feedback-table th {
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    background: #007bff; /* Gradient header background */
+    color: #ffffff; /* Ensure text color is set */
+    transition: none; /* Ensure no transition effects */
+  }
+  
+  .admin-feedback-table td {
+    padding: 15px 20px;
+    font-size: 1rem;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .admin-feedback-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  .admin-feedback-table tr:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .admin-feedback-table th:first-child,
+  .admin-feedback-table td:first-child {
+    border-top-left-radius: 10px;
+  }
+  
+  .admin-feedback-table th:last-child,
+  .admin-feedback-table td:last-child {
+    border-top-right-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-feedback-content {
+      margin: 10px;
+      padding: 10px;
+      padding-top: 60px; /* Adjust padding-top for smaller screens */
+    }
+  
+    .admin-feedback-table {
+      font-size: 0.9rem;
+      width: calc(100% - 20px); /* Adjust width for smaller screens */
+    }
+  }
+  

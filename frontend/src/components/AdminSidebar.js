@@ -6,9 +6,10 @@ const AdminSidebar = ({ isVisible }) => (
   <div className={`admin-sidebar ${isVisible ? 'visible' : 'hidden'}`}>
     <ul>
       <li><Link to="/admin">Home</Link></li>
-      <li><Link to="/admin-maintenance">Maintenance</Link></li>
-      <li><Link to="/admin-sold-properties">Sold Properties</Link></li>
-      <li><Link to="/admin-feedbacks">Feedbacks</Link></li>
+      <li><Link to="/admin-contact">Notifications</Link></li> {/* Added link */}
+      <li><Link to="/admin-maintenance">Maintenance Requests</Link></li>
+      <li><Link to="/admin-bookings">Booked Properties</Link></li>
+      <li><Link to="/admin-feedbacks">User Feedbacks</Link></li>
       <li><Link to="/">Logout</Link></li>
     </ul>
   </div>

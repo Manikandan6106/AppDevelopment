@@ -39,7 +39,7 @@ public class UserService {
         User user = userRepo.findById(id).orElse(null);
 
         if (user != null) {
-            user.setUsername(userDetails.getUsername());
+            user.setName(userDetails.getName());
             user.setEmail(userDetails.getEmail());
             user.setPassword(userDetails.getPassword());
             return userRepo.save(user);

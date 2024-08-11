@@ -3,6 +3,7 @@ package com.example.realestate.controller;
 import com.example.realestate.model.Property;
 import com.example.realestate.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -18,42 +19,47 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @GetMapping("/getAll")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
-    public List<Property> getAllProperties() {
-        return propertyService.getAllProperties();
+    @PreAuthorize("hasAnyAuthority('ADMIN') or hasAnyAuthority('USER')")
+    public ResponseEntity<List<Property>> getAllProperties() {
+        List<Property> properties = propertyService.getAllProperties();
+        return new ResponseEntity<>(properties, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN') or hasAnyAuthority('USER')")
     public ResponseEntity<Property> getPropertyById(@PathVariable Long id) {
         Optional<Property> property = propertyService.getPropertyById(id);
-        return property.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return property.map(ResponseEntity::ok)
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public Property createProperty(@RequestBody Property property) {
-        return propertyService.saveProperty(property);
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public ResponseEntity<Property> createProperty(@RequestBody Property property) {
+        Property savedProperty = propertyService.saveProperty(property);
+        return new ResponseEntity<>(savedProperty, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Property> updateProperty(@PathVariable Long id, @RequestBody Property property) {
-        if (!propertyService.getPropertyById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
+        Optional<Property> existingProperty = propertyService.getPropertyById(id);
+        if (!existingProperty.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         property.setId(id);
         Property updatedProperty = propertyService.saveProperty(property);
-        return ResponseEntity.ok(updatedProperty);
+        return new ResponseEntity<>(updatedProperty, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Void> deleteProperty(@PathVariable Long id) {
-        if (!propertyService.getPropertyById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
+        Optional<Property> property = propertyService.getPropertyById(id);
+        if (!property.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         propertyService.deleteProperty(id);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

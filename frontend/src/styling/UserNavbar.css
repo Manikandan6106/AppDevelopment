@@ -20,15 +20,7 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Show navbar */
-.user-navbar.visible {
-    top: 0;
-}
-
-/* Hide navbar */
-.user-navbar.hidden {
-    top: -100px;
-}
+  
 
 /* Logo container */
 .user-logo-container {

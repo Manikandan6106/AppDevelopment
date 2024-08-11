@@ -1,0 +1,89 @@
+/* src/styling/EditProperty.css */
+
+.edit-property-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eef1f5a7;
+    background-image: url('../assets/edit-property-bg.png'); /* Replace with your actual path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.edit-property-form-container {
+    background-color: rgba(255, 255, 255, 0); /* Slightly less transparent */
+    padding: 20px; /* Adjusted padding */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+    width: 100%;
+    max-width: 500px; /* Keep the same width */
+    margin: 0 auto; /* Center align horizontally */
+    max-height: 80vh; /* Limit the maximum height of the form container */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.edit-property-title {
+    font-size: 24px; /* Adjusted font size */
+    font-weight: bold;
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: center;
+}
+
+.edit-property-input-field {
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.edit-property-input-field input,
+.edit-property-input-field textarea {
+    padding: 10px;
+    border: 1px solid #ddd; /* Added border for better visibility */
+    border-radius: 6px; /* Slightly smaller border-radius */
+    width: 100%;
+    font-size: 14px; /* Reduced font size */
+    background-color: #fff; /* Slightly different background color */
+}
+
+.edit-property-input-field textarea {
+    resize: vertical;
+    height: 60px; /* Reduced height */
+}
+
+.edit-property-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px; /* Adjusted padding */
+    border: none;
+    border-radius: 6px; /* Adjusted border-radius */
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px; /* Adjusted font size */
+}
+
+.edit-property-btn:hover {
+    background-color: #0056b3;
+}
+
+.edit-property-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .edit-property-form-container {
+        padding: 15px; /* Adjusted padding */
+    }
+
+    .edit-property-title {
+        font-size: 20px; /* Adjusted font size */
+    }
+
+    .edit-property-btn {
+        font-size: 14px; /* Further adjusted font size */
+    }
+}
