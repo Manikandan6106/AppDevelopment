@@ -32,6 +32,27 @@ const AdminContact = () => {
     fetchData();
   }, []);
 
+  const deleteContact = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://127.0.0.1:8080/api/contact/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setContacts(contacts.filter(contact => contact.id !== id));
+        console.log('Deleted successfully');
+      } else {
+        console.error('Failed to delete the contact');
+      }
+    } catch (error) {
+      console.error('Error deleting contact:', error);
+    }
+  };
+
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
@@ -50,6 +71,8 @@ const AdminContact = () => {
               <th>Email</th>
               <th>Phone Number</th>
               <th>Message</th>
+              <th>Property ID</th> {/* Add Property ID column */}
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -60,6 +83,15 @@ const AdminContact = () => {
                 <td>{contact.email}</td>
                 <td>{contact.phone}</td>
                 <td>{contact.message}</td>
+                <td>{contact.propertyId}</td> {/* Display Property ID */}
+                <td>
+                  <button 
+                    className="delete-btn" 
+                    onClick={() => deleteContact(contact.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

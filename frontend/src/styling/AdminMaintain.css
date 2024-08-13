@@ -104,3 +104,25 @@
         width: calc(100% - 20px); /* Adjust width for smaller screens */
     }
 }
+.admin-maintain-assist-btn,
+.admin-maintain-delete-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-maintain-assist-btn {
+  background-color: #4CAF50; /* Green */
+}
+
+.admin-maintain-delete-btn {
+  background-color: #f44336; /* Red */
+}
+
+.admin-maintain-assist-btn:hover,
+.admin-maintain-delete-btn:hover {
+  opacity: 0.8;
+}

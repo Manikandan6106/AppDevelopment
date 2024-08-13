@@ -48,6 +48,7 @@ public class SecurityConfig {
                                                 request -> request.requestMatchers(
                                                                 "/api/users/create",
                                                                 "/api/auth/home",
+                                                                "api/properties/getAll",
                                                                 "/api/auth/authenticate","/**").permitAll())
                                 .authorizeHttpRequests(request -> request
                                                 .requestMatchers(

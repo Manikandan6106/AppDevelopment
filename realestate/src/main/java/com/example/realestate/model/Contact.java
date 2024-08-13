@@ -16,6 +16,8 @@ public class Contact {
     private String phone; // Phone now includes the country code
     private String message; // New field for storing the message
     private boolean termsAccepted;
+    private Long propertyId; // New field for property ID
+    private Long userId; // New field for user ID
 
     // Getters and Setters
 
@@ -65,5 +67,21 @@ public class Contact {
 
     public void setTermsAccepted(boolean termsAccepted) {
         this.termsAccepted = termsAccepted;
+    }
+
+    public Long getPropertyId() {
+        return propertyId;
+    }
+
+    public void setPropertyId(Long propertyId) {
+        this.propertyId = propertyId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

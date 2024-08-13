@@ -31,6 +31,7 @@ import AdminFeedback from './components/AdminFeedback';
 import EditProperty from './components/EditProperty';
 import AdminContact from './components/AdminContact';
 import SoldProperty from './components/SoldProperty';
+import UserProfile from './components/UserProfile';
 
 const App = () => {
   const [properties, setProperties] = useState([
@@ -113,6 +114,7 @@ const App = () => {
         <Route path="/user/privacy" element={<UserPrivacy />} />
         <Route path="/user/ReqMain" element={<ReqMain />} />
         <Route path="/user/Feedback" element={<Feedback />} />
+        <Route path="/user/profile" element={<UserProfile />} />
         <Route path="/user/propertylist" element={<PropertyList properties={properties} isAdmin={false} isLoggedIn={isLoggedIn} />} />
         <Route path="/admin/services" element={<Services />} />
         <Route path="/admin/privacy" element={<PrivacyPolicy />} />

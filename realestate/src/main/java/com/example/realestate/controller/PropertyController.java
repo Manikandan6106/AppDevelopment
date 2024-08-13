@@ -19,11 +19,20 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @GetMapping("/getAll")
-    @PreAuthorize("hasAnyAuthority('ADMIN') or hasAnyAuthority('USER')")
-    public ResponseEntity<List<Property>> getAllProperties() {
+public ResponseEntity<List<Property>> getAllProperties() {
+    try {
         List<Property> properties = propertyService.getAllProperties();
+        if (properties == null || properties.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         return new ResponseEntity<>(properties, HttpStatus.OK);
+    } catch (Exception e) {
+        // Log the exception to get more details
+        e.printStackTrace();
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
+
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('ADMIN') or hasAnyAuthority('USER')")

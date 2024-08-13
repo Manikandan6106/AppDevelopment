@@ -54,7 +54,7 @@ public ResponseEntity<?> createFeedback(@RequestBody Feedback feedback) {
     // }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN   ')")
     public ResponseEntity<Void> deleteFeedback(@PathVariable Long id) {
         if (!feedbackService.getFeedbackById(id).isPresent()) {
             return ResponseEntity.notFound().build();

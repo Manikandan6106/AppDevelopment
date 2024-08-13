@@ -1,0 +1,91 @@
+/* User profile container */
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('../assets/StockCake-Touchscreen Interface Interaction_1722679919.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+}
+
+/* Profile details and form */
+.profile-details {
+    margin-top: 100px;
+    background-color: rgba(255, 255, 255, 0.747);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative; /* Ensure heading positioning is relative to this container */
+}
+
+/* Profile title */
+.profile-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Input field styling */
+.profile-label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.profile-input {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.profile-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.profile-button:hover {
+    background-color: #0056b3;
+}
+
+/* Specific button colors */
+.save-button {
+    background-color: #28a745;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+.edit-button {
+    background-color: #007BFF;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}

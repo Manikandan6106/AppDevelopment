@@ -32,6 +32,27 @@ const AdminFeedback = () => {
     fetchData();
   }, []);
 
+  const deleteFeedback = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://127.0.0.1:8080/api/feedback/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
+        console.log('Deleted successfully');
+      } else {
+        console.error('Failed to delete the feedback');
+      }
+    } catch (error) {
+      console.error('Error deleting feedback:', error);
+    }
+  };
+
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
@@ -51,6 +72,7 @@ const AdminFeedback = () => {
               <th>Phone</th>
               <th>Rating</th>
               <th>Review</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -62,6 +84,14 @@ const AdminFeedback = () => {
                 <td>{feedback.phone}</td>
                 <td>{feedback.rating}</td>
                 <td>{feedback.review}</td>
+                <td>
+                  <button 
+                    className="delete-btn" 
+                    onClick={() => deleteFeedback(feedback.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

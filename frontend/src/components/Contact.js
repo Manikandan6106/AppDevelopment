@@ -1,52 +1,48 @@
 import React, { useState } from 'react';
-import '../styling/Contact.css'; // Ensure the path is correct
+import '../styling/Contact.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
-import 'react-phone-number-input/style.css'; // Import PhoneInput styles
+import { useNavigate, useLocation } from 'react-router-dom';
+import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState(''); // Phone will now include country code
-  const [message, setMessage] = useState(''); // Added message state
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [errors, setErrors] = useState({});
-
+  
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const handlePhoneChange = (value) => {
-    setPhone(value); // Store the phone number with country code directly
-  };
+  // Extract propertyId and userId from location state
+  const { property } = location.state || {};
+  const propertyId = property?.id;
+  const userId = localStorage.getItem('userId'); // Ensure userId is available in localStorage
+
+  const handlePhoneChange = (value) => setPhone(value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const isValid = validateContact();
-    if (isValid) {
+    if (validateContact()) {
       try {
         const response = await axios.post("http://127.0.0.1:8080/api/contact/create", {
           name,
           email,
-          phone, // Send the phone number with country code
-          message, // Send the message
+          phone,
+          message,
           termsAccepted,
+          propertyId,
+          userId,
         });
 
         if (response.status === 201) {
           toast.success("Message sent successfully!");
-          setName('');
-          setEmail('');
-          setPhone('');
-          setMessage(''); // Clear the message field
-          setTermsAccepted(false);
-
-          // Delay navigation by 3 seconds
-          setTimeout(() => {
-            navigate("/user");
-          }, 3000);
+          resetForm();
+          setTimeout(() => navigate("/user"), 3000);
         } else {
           toast.error("Failed to send message");
         }
@@ -59,31 +55,23 @@ const Contact = () => {
 
   const validateContact = () => {
     const errors = {};
-    
-    if (!name) {
-        errors.name = 'Name is required';
-    }
-    if (!email) {
-        errors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-        errors.email = 'Invalid email address';
-    }
-    
-    // Ensure that the phone number is at least 10 digits without the country code
-    if (!phone || phone.length < 10) {
-        errors.phone = 'Phone number must be at least 10 digits';
-    }
+    if (!name) errors.name = 'Name is required';
+    if (!email) errors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(email)) errors.email = 'Invalid email address';
+    if (!phone || phone.length < 10) errors.phone = 'Phone number must be at least 10 digits';
+    if (!message) errors.message = 'Message is required';
+    if (!termsAccepted) errors.terms = 'You must accept the terms and conditions';
 
-    if (!message) {
-        errors.message = 'Message is required';
-    }
-    
-    if (!termsAccepted) {
-        errors.terms = 'You must accept the terms and conditions';
-    }
-    
     setErrors(errors);
     return Object.keys(errors).length === 0;
+  };
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setPhone('');
+    setMessage('');
+    setTermsAccepted(false);
   };
 
   return (
@@ -110,16 +98,13 @@ const Contact = () => {
             {errors.email && <div className="contact-error">{errors.email}</div>}
           </div>
           <div className="contact-phone-input-field-unique">
-            <div className="contact-phone-input-container-unique">
             <PhoneInput
-            value={phone}
-            onChange={handlePhoneChange}
-            defaultCountry="IN"
-            className="contact-phone-input-unique" // Apply the new class here
-            placeholder="Phone Number"
+              value={phone}
+              onChange={handlePhoneChange}
+              defaultCountry="IN"
+              className="contact-phone-input-unique"
+              placeholder="Phone Number"
             />
-
-            </div>
             {errors.phone && <div className="contact-error">{errors.phone}</div>}
           </div>
           <div className="contact-input-field">

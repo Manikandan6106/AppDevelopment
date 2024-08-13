@@ -111,7 +111,7 @@ const PropertyList = ({ isAdmin, isLoggedIn }) => {
                   alt={property.title} 
                   className="property-image" 
                   onError={(e) => {
-                    e.target.src = '/path/to/default-image.jpg'; // Fallback image
+                    e.target.src = '/path/to/default-image.jpg'; 
                   }}
                 />
               </div>

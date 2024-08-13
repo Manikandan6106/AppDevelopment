@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavigationBar from './Navbar';
-import '../styling/Login.css';  // Keep your existing CSS file here
+import '../styling/Login.css';
 import axios from 'axios';
 
 const Login = () => {
@@ -46,6 +46,7 @@ const Login = () => {
         const response = await axios.post(apiurl, formData);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
+        localStorage.setItem("user", formData.email);
 
         const role = localStorage.getItem("role");
         toast.success('Logged in successfully!');
@@ -53,7 +54,7 @@ const Login = () => {
           if (role === "ADMIN") {
             navigate('/admin');
           } else {
-            navigate('/user');
+            navigate('/user'); // Redirect to User Home page
           }
         }, 1500); 
       } catch (error) {
@@ -102,7 +103,6 @@ const Login = () => {
         <p className="signup-link">
           Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
-        
       </div>
       <ToastContainer />
     </div>

@@ -64,7 +64,7 @@ public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
             return ResponseEntity.notFound().build();
         }
         Booking booking = bookingOptional.get();
-        booking.setApproved(true);  // Assuming you have an `approved` field in Booking entity
+        booking.setApproved(true);   
         Booking updatedBooking = bookingService.saveBooking(booking);
         return ResponseEntity.ok(updatedBooking);
     }

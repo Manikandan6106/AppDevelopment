@@ -33,6 +33,7 @@ public class ContactController {
 
     @PostMapping("/create")
     public ResponseEntity<Contact> createContact(@RequestBody Contact contact) {
+        // Assuming userId and propertyId are included in the request body
         Contact savedContact = contactService.createContact(contact);
         return new ResponseEntity<>(savedContact, HttpStatus.CREATED);
     }

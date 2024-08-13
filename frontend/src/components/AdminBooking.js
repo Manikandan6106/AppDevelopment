@@ -1,5 +1,3 @@
-// AdminBooking.js
-
 import React, { useState, useEffect } from 'react';
 import AdminNavbar from './AdminNavbar';
 import AdminSidebar from './AdminSidebar';

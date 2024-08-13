@@ -100,3 +100,26 @@
         width: calc(100% - 20px); /* Adjust width for smaller screens */
     }
 }
+/* Delete Button */
+.delete-btn {
+    background: linear-gradient(90deg, #ff5722, #e64a19);
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Delete Button Hover Effect */
+.delete-btn:hover {
+    background: linear-gradient(90deg, #e64a19, #d84315);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}

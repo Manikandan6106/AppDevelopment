@@ -36,6 +36,29 @@ const AdminMaintain = () => {
     setSidebarVisible(!sidebarVisible);
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await fetch(`http://127.0.0.1:8080/api/maintain/${id}`, {
+        method: 'DELETE',
+        headers: config.headers,
+      });
+      if (response.ok) {
+        setMaintenanceRequests(maintenanceRequests.filter(request => request.id !== id));
+      } else {
+        console.error('Failed to delete maintenance request');
+      }
+    } catch (error) {
+      console.error('Error deleting request:', error);
+    }
+  };
+
   return (
     <div className={`admin-maintain-container ${sidebarVisible ? 'sidebar-open' : ''}`}>
       <AdminNavbar toggleSidebar={toggleSidebar} />
@@ -50,7 +73,8 @@ const AdminMaintain = () => {
               <th>Address</th>
               <th>Phone Number</th>
               <th>Issue</th>
-             </tr>
+              <th>Actions</th>
+            </tr>
           </thead>
           <tbody>
             {maintenanceRequests.map((request) => (
@@ -60,7 +84,16 @@ const AdminMaintain = () => {
                 <td>{request.address}</td>
                 <td>{request.phoneNumber}</td>
                 <td>{request.issue}</td>
-               </tr>
+                <td>
+                  <button className="admin-maintain-assist-btn">Assist</button>
+                  <button
+                    className="admin-maintain-delete-btn"
+                    onClick={() => handleDelete(request.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

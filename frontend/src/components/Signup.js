@@ -3,6 +3,8 @@ import '../styling/Signup.css';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -32,14 +34,16 @@ const Signup = () => {
       );
 
       if (response.status === 201) {
-        alert("User created successfully");
-        navigate("/login");
+        toast.success("User created successfully");
+        setTimeout(() => {
+          navigate("/login");
+        }, 4000); // Redirect after 4 seconds
       } else {
-        alert("User creation failed");
+        toast.error("User creation failed");
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred during user creation");
+      toast.error("An error occurred during user creation");
     }
   }
 
@@ -119,6 +123,7 @@ const Signup = () => {
           <p>Already have an account? <a href="/login">Login</a></p>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }

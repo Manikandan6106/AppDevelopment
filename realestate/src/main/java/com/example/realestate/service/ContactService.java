@@ -32,8 +32,10 @@ public class ContactService {
             contact.setName(contactDetails.getName());
             contact.setEmail(contactDetails.getEmail());
             contact.setPhone(contactDetails.getPhone());
-            contact.setMessage(contactDetails.getMessage()); // Update the message field
+            contact.setMessage(contactDetails.getMessage());
             contact.setTermsAccepted(contactDetails.isTermsAccepted());
+            contact.setPropertyId(contactDetails.getPropertyId()); // Update the propertyId field
+            contact.setUserId(contactDetails.getUserId()); // Update the userId field
             return contactRepo.save(contact);
         }
 

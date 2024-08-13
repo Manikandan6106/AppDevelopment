@@ -32,6 +32,27 @@ const SoldProperty = () => {
     fetchApprovedBookings();
   }, []);
 
+  const deleteSoldProperty = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://127.0.0.1:8080/api/bookings/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setApprovedBookings(approvedBookings.filter(booking => booking.id !== id));
+        console.log('Deleted successfully');
+      } else {
+        console.error('Failed to delete the property');
+      }
+    } catch (error) {
+      console.error('Error deleting property:', error);
+    }
+  };
+
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
@@ -51,6 +72,7 @@ const SoldProperty = () => {
               <th>Phone</th>
               <th>Address</th>
               <th>Property ID</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -62,6 +84,14 @@ const SoldProperty = () => {
                 <td>{booking.phone}</td>
                 <td>{booking.address}</td>
                 <td>{booking.propertyId}</td>
+                <td>
+                  <button 
+                    className="delete-btn" 
+                    onClick={() => deleteSoldProperty(booking.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
